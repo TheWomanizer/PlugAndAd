@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #333131;
+}
+
+header {
+    background-color: rgba(234, 115, 220, 0.82);
+    color: white;
+    padding: 20px;
+}
+
+.savings {
+    margin-top: 50px;
+   
