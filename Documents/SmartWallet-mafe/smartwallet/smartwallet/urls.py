@@ -18,6 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from smartW import views as walletviews
 from smartW.views import dashboard
+from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('', walletviews.dashboard, name = 'dashboard'),
+    path('news/', include('news.urls')),
+]

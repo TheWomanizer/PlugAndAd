@@ -1,15 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Darumadrop+One&family=Gluten:slnt,wght@2,100..900&family=Homemade+Apple&family=Shadows+Into+Light&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Darumadrop One", serif;
+    font-size: 50px ;
     text-align: center;
-    background-color: #333131;
+    font-weight: 400;
+    font-style: normal;
 }
 
 header {
-    background-color: rgba(234, 115, 220, 0.82);
-    color: white;
-    padding: 20px;
+    color: rgba(246, 244, 244, 0.965);
+
+
 }
 
+
+
+
 .savings {
-    margin-top: 50px;
-   
+    margin-top: 30px;
+    font-size: 40px;
+    text-align: center;
+    color: rgba(244, 226, 226, 0.769);
+}
+.hero{
+    min-height: 100vh;
+    width: 100%;
+}
+
+@keyframes hero-gradient-animation{0%{--s-start-0:9%; --s-end-0:63%; --x-0:0%; --c-0:hsla(235.66265060240966,43%,62%,0.65); --y-0:9%; --y-1:22%; --s-start-1:17%; --s-end-1:72%; --c-1:hsla(236.04395604395606,56%,68%,0.65); --x-1:98%; --c-2:hsla(236.39999999999998,79%,75%,0.59); --x-2:94%; --s-start-2:19%; --s-end-2:47.38841905519602%; --y-2:89%; --y-3:65%; --x-3:58%; --s-start-3:6%; --s-end-3:83%; --c-3:hsla(239.37500000000006,100%,81%,0.59); --s-start-4:61.4221109822442%; --s-end-4:83%; --y-4:57%; --x-4:26%; --c-4:hsla(41.82349709903494,100%,66%,0.59);}100%{--s-start-0:13%; --s-end-0:75%; --x-0:47%; --c-0:hsla(270.52631578947364,90%,87%,0.69); --y-0:17%; --y-1:4%; --s-start-1:9%; --s-end-1:79%; --c-1:hsla(270.4761904761905,91%,86%,0.63); --x-1:76%; --c-2:hsla(270.85714285714283,92%,85%,0.55); --x-2:48%; --s-start-2:4.575327705544985%; --s-end-2:89%; --y-2:48%; --y-3:89%; --x-3:43%; --s-start-3:20%; --s-end-3:70%; --c-3:hsla(259.73684210526307,97%,84%,0.51); --s-start-4:20%; --s-end-4:70%; --y-4:65%; --x-4:56%; --c-4:hsla(25.941144157858425,100%,53%,0.51);}}@property --s-start-0{syntax:'<percentage>';inherits:false;initial-value:9%}@property --s-end-0{syntax:'<percentage>';inherits:false;initial-value:63%}@property --x-0{syntax:'<percentage>';inherits:false;initial-value:0%}@property --c-0{syntax:'<color>';inherits:false;initial-value:hsla(235.66265060240966,43%,62%,0.65)}@property --y-0{syntax:'<percentage>';inherits:false;initial-value:9%}@property --y-1{syntax:'<percentage>';inherits:false;initial-value:22%}@property --s-start-1{syntax:'<percentage>';inherits:false;initial-value:17%}@property --s-end-1{syntax:'<percentage>';inherits:false;initial-value:72%}@property --c-1{syntax:'<color>';inherits:false;initial-value:hsla(236.04395604395606,56%,68%,0.65)}@property --x-1{syntax:'<percentage>';inherits:false;initial-value:98%}@property --c-2{syntax:'<color>';inherits:false;initial-value:hsla(236.39999999999998,79%,75%,0.59)}@property --x-2{syntax:'<percentage>';inherits:false;initial-value:94%}@property --s-start-2{syntax:'<percentage>';inherits:false;initial-value:19%}@property --s-end-2{syntax:'<percentage>';inherits:false;initial-value:47.38841905519602%}@property --y-2{syntax:'<percentage>';inherits:false;initial-value:89%}@property --y-3{syntax:'<percentage>';inherits:false;initial-value:65%}@property --x-3{syntax:'<percentage>';inherits:false;initial-value:58%}@property --s-start-3{syntax:'<percentage>';inherits:false;initial-value:6%}@property --s-end-3{syntax:'<percentage>';inherits:false;initial-value:83%}@property --c-3{syntax:'<color>';inherits:false;initial-value:hsla(239.37500000000006,100%,81%,0.59)}@property --s-start-4{syntax:'<percentage>';inherits:false;initial-value:61.4221109822442%}@property --s-end-4{syntax:'<percentage>';inherits:false;initial-value:83%}@property --y-4{syntax:'<percentage>';inherits:false;initial-value:57%}@property --x-4{syntax:'<percentage>';inherits:false;initial-value:26%}@property --c-4{syntax:'<color>';inherits:false;initial-value:hsla(41.82349709903494,100%,66%,0.59)}.hero{--x-0:0%;--c-0:hsla(235.66265060240966,43%,62%,0.65);--y-0:9%;--y-1:22%;--c-1:hsla(236.04395604395606,56%,68%,0.65);--x-1:98%;--c-2:hsla(236.39999999999998,79%,75%,0.59);--x-2:94%;--y-2:89%;--y-3:65%;--x-3:58%;--c-3:hsla(239.37500000000006,100%,81%,0.59);--y-4:57%;--x-4:26%;--c-4:hsla(41.82349709903494,100%,66%,0.59);;background-color:hsla(262,0%,100%,1);background-image:radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0),transparent var(--s-end-0)),radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1),transparent var(--s-end-1)),radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2),transparent var(--s-end-2)),radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3),transparent var(--s-end-3)),radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4),transparent var(--s-end-4));animation:hero-gradient-animation 15s linear infinite alternate;background-blend-mode:normal,normal,normal,normal,normal;}

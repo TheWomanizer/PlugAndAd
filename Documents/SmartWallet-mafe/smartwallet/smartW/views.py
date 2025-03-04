@@ -5,4 +5,6 @@ from .models import Saving
 
 # Create your views here.
 
-def dashboard 
+def dashboard (request):
+    total_saving= Saving.objects.aggregate(total= Sum('amount'))['total'] or 0
+    return render(request, 'savings/dashboard.html', {'total_savings': total_saving})
