@@ -1,0 +1,319 @@
+{% extends 'website/about/base_about.html' %} {% block hero_title %}Conoce al
+Equipo{% endblock %} {% block hero_subtitle %}Los expertos que están
+construyendo el futuro de la publicidad digital{% endblock %} {% block
+about_content %}
+<!-- Team Introduction -->
+<div class="card animate-fadeInUp text-center" style="margin-bottom: 3rem">
+  <div class="card__content">
+    <h2 class="card__title">Un equipo diverso con una pasión común</h2>
+    <p
+      style="
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto;
+      "
+    >
+      Somos un grupo de profesionales apasionados por la tecnología, el
+      marketing y la innovación, unidos por el objetivo de hacer la publicidad
+      digital más accesible y efectiva para todos.
+    </p>
+  </div>
+</div>
+
+<!-- Leadership Team -->
+<div class="animate-fadeInUp" style="margin-bottom: 4rem">
+  <h2 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark)">
+    Liderazgo
+  </h2>
+  <div class="team-grid">
+    {% for member in team_members %} {% if forloop.counter <= 2 %}
+    <div class="team-card animate-fadeInUp animate-delay-{{ forloop.counter }}">
+      <span class="team-card__avatar">{{ member.image }}</span>
+      <h3 class="team-card__name">{{ member.name }}</h3>
+      <p class="team-card__role">{{ member.role }}</p>
+      <p class="team-card__bio">{{ member.bio }}</p>
+      <a href="{{ member.linkedin }}" class="team-card__linkedin">
+        💼 LinkedIn →
+      </a>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+</div>
+
+<!-- Core Team -->
+<div class="animate-fadeInUp" style="margin-bottom: 4rem">
+  <h2 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark)">
+    Equipo Principal
+  </h2>
+  <div class="team-grid">
+    {% for member in team_members %} {% if forloop.counter > 2 %}
+    <div class="team-card animate-fadeInUp animate-delay-{{ forloop.counter }}">
+      <span class="team-card__avatar">{{ member.image }}</span>
+      <h3 class="team-card__name">{{ member.name }}</h3>
+      <p class="team-card__role">{{ member.role }}</p>
+      <p class="team-card__bio">{{ member.bio }}</p>
+      <a href="{{ member.linkedin }}" class="team-card__linkedin">
+        💼 LinkedIn →
+      </a>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+</div>
+
+<!-- Team Culture -->
+<div
+  class="card animate-fadeInUp"
+  style="
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #f0f4ff 100%);
+  "
+>
+  <div class="card__header text-center">
+    <h2 class="card__title" style="color: var(--text-dark)">Nuestra Cultura</h2>
+    <p class="card__description" style="color: var(--text-muted)">
+      Los valores que nos definen como equipo
+    </p>
+  </div>
+  <div class="card__content">
+    <div class="grid grid--3">
+      <div style="text-align: center; padding: 1.5rem">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🚀</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 1rem">
+          Innovación Continua
+        </h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem">
+          Siempre buscamos maneras de mejorar y nunca nos conformamos con el
+          status quo
+        </p>
+      </div>
+
+      <div style="text-align: center; padding: 1.5rem">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🤝</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 1rem">
+          Colaboración
+        </h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem">
+          Creemos que las mejores ideas surgen cuando trabajamos juntos como
+          equipo
+        </p>
+      </div>
+
+      <div style="text-align: center; padding: 1.5rem">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🎯</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 1rem">
+          Orientación a Resultados
+        </h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem">
+          Nos enfocamos en crear valor real y medible para nuestros clientes
+        </p>
+      </div>
+
+      <div style="text-align: center; padding: 1.5rem">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🌱</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 1rem">
+          Crecimiento Personal
+        </h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem">
+          Invertimos en el desarrollo profesional y personal de cada miembro del
+          equipo
+        </p>
+      </div>
+
+      <div style="text-align: center; padding: 1.5rem">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >⚖️</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 1rem">
+          Work-Life Balance
+        </h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem">
+          Promovemos un equilibrio saludable entre el trabajo y la vida personal
+        </p>
+      </div>
+
+      <div style="text-align: center; padding: 1.5rem">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🌍</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 1rem">
+          Diversidad e Inclusión
+        </h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem">
+          Valoramos las diferentes perspectivas y experiencias de nuestro equipo
+          global
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Office Locations -->
+<div class="card animate-fadeInUp" style="margin-bottom: 3rem">
+  <div class="card__header text-center">
+    <h2 class="card__title">Nuestras Oficinas</h2>
+    <p class="card__description">
+      Trabajamos de forma remota e híbrida desde diferentes partes del mundo
+    </p>
+  </div>
+  <div class="card__content">
+    <div class="grid grid--3">
+      <div
+        style="
+          text-align: center;
+          padding: 2rem;
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius-md);
+        "
+      >
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🏢</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem">
+          Madrid, España
+        </h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0">
+          Sede Principal
+        </p>
+        <p
+          style="
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin: 0.5rem 0 0 0;
+          "
+        >
+          Serrano 95, 28006
+        </p>
+      </div>
+
+      <div
+        style="
+          text-align: center;
+          padding: 2rem;
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius-md);
+        "
+      >
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🌴</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem">
+          São Paulo, Brasil
+        </h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0">
+          Oficina LATAM
+        </p>
+        <p
+          style="
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin: 0.5rem 0 0 0;
+          "
+        >
+          Av. Paulista 1000
+        </p>
+      </div>
+
+      <div
+        style="
+          text-align: center;
+          padding: 2rem;
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius-md);
+        "
+      >
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🏔️</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem">
+          Remote First
+        </h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0">
+          Equipo Distribuido
+        </p>
+        <p
+          style="
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin: 0.5rem 0 0 0;
+          "
+        >
+          15+ países
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Join Team CTA -->
+<div
+  class="card animate-fadeInUp"
+  style="background: var(--primary-color); color: white; text-align: center"
+>
+  <div class="card__content">
+    <span style="font-size: 3rem; display: block; margin-bottom: 1rem">🚀</span>
+    <h3 style="color: white; margin-bottom: 1rem">
+      ¿Quieres unirte al equipo?
+    </h3>
+    <p
+      style="
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      "
+    >
+      Estamos siempre buscando talento excepcional para unirse a nuestra misión.
+      Si compartes nuestra visión y quieres formar parte del futuro de la
+      publicidad digital, nos encantaría conocerte.
+    </p>
+    <div
+      style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap"
+    >
+      <a
+        href="{% url 'about_contact' %}"
+        class="btn"
+        style="
+          background-color: white;
+          color: var(--primary-color);
+          font-weight: 600;
+        "
+      >
+        📧 Contacta con nosotros
+      </a>
+      <a
+        href="{% url 'signup' %}"
+        class="btn btn--secondary"
+        style="border-color: white; color: white"
+      >
+        Prueba la plataforma
+      </a>
+    </div>
+
+    <!-- Open Positions Hint -->
+    <div
+      style="
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      "
+    >
+      <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin: 0">
+        Posiciones abiertas:
+        <strong
+          >Senior Full Stack Developer • ML Engineer • Product Designer</strong
+        >
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

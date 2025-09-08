@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Plug&amp;Ad - Automatiza tus Ads{% endblock %}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Josefin+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Meta tags -->
+    <meta name="description" content="{% block description %}Automatiza y optimiza tus campañas publicitarias con IA. Conecta Google, Meta y TikTok Ads en una sola plataforma.{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Plug&amp;Ad - Automatiza tus Ads{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Plataforma completa para automatizar y optimizar campañas publicitarias con IA{% endblock %}">
+    <meta property="og:type" content="website">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <a href="{% url 'home' %}" class="nav__logo">Plug&amp;Ad</a>
+            </div>
+            <div class="nav__menu">
+                <a href="{% url 'home' %}" class="nav__link">Inicio</a>
+                <a href="{% url 'packages' %}" class="nav__link">Paquetes</a>
+                <a href="{% url 'pricing' %}" class="nav__link">Precios</a>
+                <a href="{% url 'signup' %}" class="nav__link nav__link--primary">Comenzar</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3 class="footer__logo">Plug&amp;Ad</h3>
+                    <p class="footer__description">
+                        Automatiza tus ads. Aumenta tu ROAS.
+                    </p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__group">
+                        <h4 class="footer__title">Producto</h4>
+                        <a href="{% url 'packages' %}" class="footer__link">Paquetes</a>
+                        <a href="{% url 'pricing' %}" class="footer__link">Precios</a>
+                        <a href="#" class="footer__link">Integraciones</a>
+                    </div>
+                    <div class="footer__group">
+                        <h4 class="footer__title">Empresa</h4>
+                        <a href="#" class="footer__link">Sobre nosotros</a>
+                        <a href="#" class="footer__link">Blog</a>
+                        <a href="#" class="footer__link">Contacto</a>
+                    </div>
+                    <div class="footer__group">
+                        <h4 class="footer__title">Soporte</h4>
+                        <a href="#" class="footer__link">Ayuda</a>
+                        <a href="#" class="footer__link">Documentación</a>
+                        <a href="#" class="footer__link">Estado</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">
+                    &copy; 2025 Plug&amp;Ad. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

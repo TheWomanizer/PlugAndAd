@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}Precios - Plug&amp;Ad{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="section__header">
+            <h1 class="section__title">Elige el plan perfecto para ti</h1>
+            <p class="section__subtitle">
+                Todos los planes incluyen 14 días de prueba gratuita. Cancela cuando quieras.
+            </p>
+        </div>
+        
+        <div class="pricing-table">
+            {% for plan in pricing_plans %}
+            <div class="card pricing-card{% if plan.popular %} pricing-card--popular{% endif %}">
+                <div class="pricing-card__header">
+                    <h3 class="pricing-card__name">{{ plan.name }}</h3>
+                    <div class="pricing-card__price">
+                        <span class="pricing-card__amount">${{ plan.price }}</span>
+                        <span class="pricing-card__period">{{ plan.period }}</span>
+                    </div>
+                    <p class="pricing-card__description">{{ plan.description }}</p>
+                </div>
+                
+                <div class="pricing-card__divider"></div>
+                
+                <div class="pricing-card__features">
+                    {% for feature in plan.features %}
+                    <div class="pricing-card__feature">
+                        <div class="pricing-card__feature-icon">✓</div>
+                        <span class="pricing-card__feature-text">{{ feature }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="pricing-card__cta">
+                    {% if plan.popular %}
+                        <a href="{% url 'signup' %}" class="btn btn--primary btn--full">{{ plan.cta }}</a>
+                    {% else %}
+                        <a href="{% url 'signup' %}" class="btn btn--secondary btn--full">{{ plan.cta }}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="section" style="padding-top: 4rem;">
+            <div class="section__header">
+                <h2 class="section__title">Preguntas frecuentes</h2>
+            </div>
+            
+            <div class="grid grid--2" style="max-width: 800px; margin: 0 auto;">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">¿Puedo cancelar en cualquier momento?</h3>
+                    </div>
+                    <div class="card__content">
+                        <p class="card__description">
+                            Sí, puedes cancelar tu suscripción en cualquier momento sin penalización. Tu acceso continuará hasta el final del período de facturación actual.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">¿Hay límite en el gasto publicitario?</h3>
+                    </div>
+                    <div class="card__content">
+                        <p class="card__description">
+                            No hay límites en el gasto publicitario que puedes gestionar. Solo limitamos el número de cuentas publicitarias según tu plan.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">¿Ofrecen soporte técnico?</h3>
+                    </div>
+                    <div class="card__content">
+                        <p class="card__description">
+                            Todos los planes incluyen soporte técnico. Professional y Enterprise incluyen soporte prioritario 24/7 con tiempos de respuesta garantizados.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">¿Puedo cambiar de plan más tarde?</h3>
+                    </div>
+                    <div class="card__content">
+                        <p class="card__description">
+                            Puedes actualizar o reducir tu plan en cualquier momento. Los cambios se aplicarán en tu próximo ciclo de facturación.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Final CTA -->
+        <div class="section" style="padding-top: 3rem;">
+            <div class="card text-center" style="max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, var(--primary-color), #4F46E5); color: white;">
+                <div class="card__header">
+                    <h3 class="card__title" style="color: white;">¿Listo para automatizar tus ads?</h3>
+                    <p class="card__description" style="color: rgba(255, 255, 255, 0.9);">
+                        Únete a más de 1000 empresas que ya confían en Plug&amp;Ad
+                    </p>
+                </div>
+                <div class="card__footer">
+                    <a href="{% url 'signup' %}" class="btn" style="background-color: white; color: var(--primary-color); font-weight: 600;">
+                        Comenzar prueba gratuita
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

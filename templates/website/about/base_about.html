@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+<style>
+/* About Section Specific Styles */
+.about-nav {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 80px;
+    z-index: 90;
+}
+
+.about-nav__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.about-nav__link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.about-nav__link:hover, 
+.about-nav__link.active {
+    color: var(--primary-color);
+    background-color: rgba(8, 31, 92, 0.05);
+}
+
+.about-nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.about-nav__link.active::after {
+    width: 80%;
+}
+
+/* Hero section for about pages */
+.about-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #4F46E5 100%);
+    color: var(--white);
+    padding: 4rem 0;
+    margin-bottom: 2rem;
+}
+
+.about-hero__title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.about-hero__subtitle {
+    font-size: 1.25rem;
+    text-align: center;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Team cards */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.team-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.team-card__avatar {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.team-card__name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.team-card__role {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.team-card__bio {
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.team-card__linkedin {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.team-card__linkedin:hover {
+    color: #4F46E5;
+    transform: translateY(-2px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+    .about-nav__container {
+        gap: 1rem;
+    }
+    
+    .about-nav__link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .about-hero {
+        padding: 2rem 0;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .team-card {
+        padding: 1.5rem;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- About Hero -->
+<section class="about-hero">
+    <div class="container">
+        <h1 class="about-hero__title animate-fadeInUp">{% block hero_title %}Sobre Plug&amp;Ad{% endblock %}</h1>
+        <p class="about-hero__subtitle animate-fadeInUp animate-delay-1">{% block hero_subtitle %}Conoce más sobre nosotros{% endblock %}</p>
+    </div>
+</section>
+
+<!-- About Navigation -->
+<nav class="about-nav">
+    <div class="container">
+        <div class="about-nav__container">
+            <a href="{% url 'about' %}" class="about-nav__link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                Inicio
+            </a>
+            <a href="{% url 'about_mission' %}" class="about-nav__link {% if request.resolver_match.url_name == 'about_mission' %}active{% endif %}">
+                Misión & Visión
+            </a>
+            <a href="{% url 'about_team' %}" class="about-nav__link {% if request.resolver_match.url_name == 'about_team' %}active{% endif %}">
+                Equipo
+            </a>
+            <a href="{% url 'about_contact' %}" class="about-nav__link {% if request.resolver_match.url_name == 'about_contact' %}active{% endif %}">
+                Contacto
+            </a>
+            <a href="{% url 'about_privacy' %}" class="about-nav__link {% if request.resolver_match.url_name == 'about_privacy' %}active{% endif %}">
+                Privacidad
+            </a>
+            <a href="{% url 'about_terms' %}" class="about-nav__link {% if request.resolver_match.url_name == 'about_terms' %}active{% endif %}">
+                Términos
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Content -->
+<section class="section">
+    <div class="about-content">
+        {% block about_content %}{% endblock %}
+    </div>
+</section>
+
+<!-- Back to Home CTA -->
+<section class="section section--bg">
+    <div class="container">
+        <div class="card text-center animate-fadeInUp" style="max-width: 600px; margin: 0 auto;">
+            <div class="card__header">
+                <h3 class="card__title">¿Listo para automatizar tus ads?</h3>
+                <p class="card__description">
+                    Únete a más de 1000 empresas que ya confían en Plug&amp;Ad
+                </p>
+            </div>
+            <a href="{% url 'signup' %}" class="btn btn--primary btn--large">
+                    Comenzar gratis
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

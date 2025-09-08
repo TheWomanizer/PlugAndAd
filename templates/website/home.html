@@ -1,0 +1,499 @@
+{% extends 'base.html' %} {% block title %}Plug&amp;Ad - Automatiza tus Ads y
+Aumenta tu ROAS{% endblock %} {% block content %}
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__content">
+      <div class="hero__text">
+        <h1 class="hero__title">
+          Automatiza tus Ads.<br />
+          Aumenta tu ROAS.
+        </h1>
+        <p class="hero__subtitle">
+          Crea la campaña perfecta combinando paquetes de Google, Meta y TikTok.
+          Publicidad, simplificada.
+        </p>
+        <div class="hero__buttons">
+          <a href="{% url 'signup' %}" class="btn btn--primary btn--large">
+            Comenzar →
+          </a>
+          <a href="{% url 'packages' %}" class="btn btn--secondary btn--large">
+            Explorar paquetes
+          </a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__visual-content">
+          <div class="hero__visual-bar"></div>
+          <div class="hero__visual-stats">
+            <div class="hero__visual-stat"></div>
+            <div class="hero__visual-stat"></div>
+            <div class="hero__visual-stat"></div>
+          </div>
+          <p style="color: #6b7280; font-size: 0.875rem; margin-top: 0.5rem">
+            Dashboard Preview
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof Section -->
+<section class="section section--bg">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Sincroniza tus cuentas</h2>
+      <p class="section__subtitle">
+        Conecta con las principales plataformas publicitarias en segundos
+      </p>
+    </div>
+
+    <div class="card" style="max-width: 800px; margin: 0 auto">
+      <div class="social-proof">
+        <div class="social-proof__item">
+          <span class="social-proof__icon">🎯</span>
+          <span class="social-proof__name">Google Ads</span>
+        </div>
+        <div class="social-proof__item">
+          <span class="social-proof__icon">📱</span>
+          <span class="social-proof__name">Meta Ads</span>
+        </div>
+        <div class="social-proof__item">
+          <span class="social-proof__icon">🎵</span>
+          <span class="social-proof__name">TikTok Ads</span>
+        </div>
+        <div class="social-proof__item">
+          <span class="social-proof__icon">💼</span>
+          <span class="social-proof__name">LinkedIn Ads</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="section section--white">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Plataformas integradas</h2>
+      <p class="section__subtitle">
+        Conecta todas tus cuentas publicitarias en una sola plataforma
+      </p>
+    </div>
+
+    <div class="grid grid--4" style="margin-bottom: 3rem">
+      <div class="social-proof__item">
+        <div
+          style="
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+          "
+        >
+          <span style="font-size: 2rem">🎯</span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-dark); margin: 0">
+          Google Ads
+        </p>
+      </div>
+      <div class="social-proof__item">
+        <div
+          style="
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+          "
+        >
+          <span style="font-size: 2rem">📱</span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-dark); margin: 0">
+          Meta Ads
+        </p>
+      </div>
+      <div class="social-proof__item">
+        <div
+          style="
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+          "
+        >
+          <span style="font-size: 2rem">🎵</span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-dark); margin: 0">
+          TikTok Ads
+        </p>
+      </div>
+      <div class="social-proof__item">
+        <div
+          style="
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+          "
+        >
+          <span style="font-size: 2rem">💼</span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-dark); margin: 0">
+          LinkedIn
+        </p>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="grid grid--2" style="max-width: 800px; margin: 0 auto">
+      <div style="display: flex; align-items: flex-start; gap: 1rem">
+        <div
+          style="
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+          "
+        >
+          <span style="color: white; font-size: 12px">✓</span>
+        </div>
+        <div>
+          <h3
+            style="
+              font-size: 1.125rem;
+              color: var(--text-dark);
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Sincronización automática
+          </h3>
+          <p style="color: var(--text-muted); margin: 0; font-size: 0.875rem">
+            Tus campañas se sincronizan en tiempo real sin intervención manual
+          </p>
+        </div>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 1rem">
+        <div
+          style="
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+          "
+        >
+          <span style="color: white; font-size: 12px">✓</span>
+        </div>
+        <div>
+          <h3
+            style="
+              font-size: 1.125rem;
+              color: var(--text-dark);
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Configuración en 1 clic
+          </h3>
+          <p style="color: var(--text-muted); margin: 0; font-size: 0.875rem">
+            Conecta todas tus cuentas en segundos con nuestro flujo simplificado
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Mezcla y combina campañas</h2>
+      <p class="section__subtitle">
+        Tres pasos simples para automatizar tus ads
+      </p>
+    </div>
+
+    <div class="card-deck">
+      <div class="card feature">
+        <span class="feature__icon">🔗</span>
+        <div class="card__content">
+          <h3 class="feature__title">Conecta</h3>
+          <p class="feature__description">
+            Integra tus cuentas de Google, Meta y TikTok Ads en segundos con
+            nuestra plataforma.
+          </p>
+        </div>
+      </div>
+
+      <div class="card feature">
+        <span class="feature__icon">⚡</span>
+        <div class="card__content">
+          <h3 class="feature__title">Optimiza</h3>
+          <p class="feature__description">
+            Nuestra IA analiza el rendimiento y ajusta las campañas para
+            maximizar tu ROAS.
+          </p>
+        </div>
+      </div>
+
+      <div class="card feature">
+        <span class="feature__icon">📈</span>
+        <div class="card__content">
+          <h3 class="feature__title">Escala</h3>
+          <p class="feature__description">
+            Recibe insights y recomendaciones para escalar tus campañas exitosas
+            sin esfuerzo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KPI Demo Section -->
+<section class="section section--white">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Lanza y analiza</h2>
+      <p class="section__subtitle">
+        Métricas en tiempo real para optimizar tus campañas
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      <div class="card kpi">
+        <p class="kpi__label">Spend Total</p>
+        <div
+          style="
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+          "
+        >
+          <span class="kpi__value">$47.2K</span>
+          <span class="kpi__trend">+12%</span>
+        </div>
+        <p class="kpi__description">Inversión publicitaria este mes</p>
+      </div>
+
+      <div class="card kpi">
+        <p class="kpi__label">Conversiones</p>
+        <div
+          style="
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+          "
+        >
+          <span class="kpi__value">2,847</span>
+          <span class="kpi__trend">+32%</span>
+        </div>
+        <p class="kpi__description">Conversiones generadas</p>
+      </div>
+
+      <div class="card kpi">
+        <p class="kpi__label">ROAS</p>
+        <div
+          style="
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+          "
+        >
+          <span class="kpi__value">4.2x</span>
+          <span class="kpi__trend">+15%</span>
+        </div>
+        <p class="kpi__description">Retorno de inversión promedio</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Qué dicen nuestros clientes</h2>
+    </div>
+
+    <div class="grid grid--2" style="max-width: 800px; margin: 0 auto">
+      <div class="card">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+          "
+        >
+          <div
+            style="
+              width: 48px;
+              height: 48px;
+              background-color: var(--accent-color);
+              border-radius: 50%;
+            "
+          ></div>
+          <div>
+            <p
+              style="
+                font-weight: 600;
+                color: var(--text-dark);
+                margin: 0 0 0.25rem 0;
+              "
+            >
+              María González
+            </p>
+            <p style="font-size: 0.875rem; color: var(--text-muted); margin: 0">
+              CMO, TechStart
+            </p>
+          </div>
+        </div>
+        <p style="color: var(--text-dark); margin: 0">
+          "Plug&amp;Ad nos ayudó a automatizar nuestras campañas y aumentar el
+          ROAS un 40% en 3 meses."
+        </p>
+      </div>
+
+      <div class="card">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+          "
+        >
+          <div
+            style="
+              width: 48px;
+              height: 48px;
+              background-color: var(--accent-color);
+              border-radius: 50%;
+            "
+          ></div>
+          <div>
+            <p
+              style="
+                font-weight: 600;
+                color: var(--text-dark);
+                margin: 0 0 0.25rem 0;
+              "
+            >
+              Carlos Ruiz
+            </p>
+            <p style="font-size: 0.875rem; color: var(--text-muted); margin: 0">
+              Director, EcomPlus
+            </p>
+          </div>
+        </div>
+        <p style="color: var(--text-dark); margin: 0">
+          "La plataforma es increíblemente fácil de usar. Configuramos todo en
+          menos de 30 minutos."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section section--bg">
+  <div class="container">
+    <div class="card text-center" style="max-width: 600px; margin: 0 auto">
+      <div class="card__header">
+        <h3 class="card__title">Explora todos los paquetes</h3>
+        <p class="card__description">
+          Descubre nuestra biblioteca completa de templates, audiencias y
+          estrategias publicitarias
+        </p>
+      </div>
+      <div class="card__footer">
+        <a href="{% url 'packages' %}" class="btn btn--primary btn--large"
+          >Ver catálogo</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Us CTA Section -->
+<section class="section section--white">
+  <div class="container">
+    <div
+      class="card text-center animate-fadeInUp"
+      style="
+        max-width: 700px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border: 1px solid var(--border-color);
+      "
+    >
+      <div class="card__header">
+        <h3 class="card__title" style="color: var(--text-dark)">
+          ¿Quieres conocer más sobre nosotros?
+        </h3>
+        <p class="card__description" style="color: var(--text-muted)">
+          Descubre nuestra historia, misión, valores y el equipo que está
+          revolucionando la publicidad digital
+        </p>
+      </div>
+      <div
+        class="card__footer"
+        style="
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        "
+      >
+        <a
+          href="{% url 'about' %}"
+          class="btn btn--secondary btn--large"
+          style="min-width: 200px"
+        >
+          <span style="margin-right: 0.5rem">👥</span>
+          Sobre nosotros
+        </a>
+        <a
+          href="{% url 'signup' %}"
+          class="btn btn--primary btn--large"
+          style="min-width: 200px"
+        >
+          Comenzar ahora →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,393 @@
+{% extends 'website/about/base_about.html' %} {% block hero_title %}Contacta con
+Nosotros{% endblock %} {% block hero_subtitle %}Estamos aquí para ayudarte.
+Ponte en contacto con nuestro equipo{% endblock %} {% block about_content %}
+<!-- Contact Options -->
+<div class="grid grid--3" style="margin-bottom: 3rem">
+  <div class="card animate-fadeInUp text-center">
+    <div style="font-size: 3rem; margin-bottom: 1rem">💬</div>
+    <h3 class="card__title">Chat en Vivo</h3>
+    <p class="card__description">
+      Habla directamente con nuestro equipo de soporte. Disponible de 9:00 a
+      18:00 CET.
+    </p>
+    <div class="card__footer">
+      <a href="#" class="btn btn--primary">Iniciar Chat</a>
+    </div>
+  </div>
+
+  <div class="card animate-fadeInUp animate-delay-1 text-center">
+    <div style="font-size: 3rem; margin-bottom: 1rem">📧</div>
+    <h3 class="card__title">Email</h3>
+    <p class="card__description">
+      Envíanos un email y te responderemos en menos de 24 horas.
+    </p>
+    <div class="card__footer">
+      <a href="mailto:hello@plugandad.com" class="btn btn--secondary"
+        >hello@plugandad.com</a
+      >
+    </div>
+  </div>
+
+  <div class="card animate-fadeInUp animate-delay-2 text-center">
+    <div style="font-size: 3rem; margin-bottom: 1rem">📞</div>
+    <h3 class="card__title">Teléfono</h3>
+    <p class="card__description">
+      Llámanos para consultas urgentes o demostraciones personalizadas.
+    </p>
+    <div class="card__footer">
+      <a href="tel:+34910123456" class="btn btn--secondary">+34 910 123 456</a>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Form -->
+<div
+  class="card animate-fadeInUp"
+  style="max-width: 700px; margin: 0 auto 3rem"
+>
+  <div class="card__header text-center">
+    <h2 class="card__title">Envíanos un Mensaje</h2>
+    <p class="card__description">
+      Completa el formulario y nos pondremos en contacto contigo lo antes
+      posible
+    </p>
+  </div>
+
+  <form
+    class="card__content"
+    style="display: flex; flex-direction: column; gap: 1.5rem"
+  >
+    <!-- Personal Info -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem">
+      <div>
+        <label
+          for="contact_name"
+          style="
+            display: block;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+          "
+        >
+          Nombre *
+        </label>
+        <input
+          type="text"
+          id="contact_name"
+          name="name"
+          required
+          style="
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+          "
+          placeholder="Tu nombre"
+        />
+      </div>
+      <div>
+        <label
+          for="contact_email"
+          style="
+            display: block;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+          "
+        >
+          Email *
+        </label>
+        <input
+          type="email"
+          id="contact_email"
+          name="email"
+          required
+          style="
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+          "
+          placeholder="tu@empresa.com"
+        />
+      </div>
+    </div>
+
+    <!-- Company & Phone -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem">
+      <div>
+        <label
+          for="contact_company"
+          style="
+            display: block;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+          "
+        >
+          Empresa
+        </label>
+        <input
+          type="text"
+          id="contact_company"
+          name="company"
+          style="
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+          "
+          placeholder="Nombre de tu empresa"
+        />
+      </div>
+      <div>
+        <label
+          for="contact_phone"
+          style="
+            display: block;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+          "
+        >
+          Teléfono
+        </label>
+        <input
+          type="tel"
+          id="contact_phone"
+          name="phone"
+          style="
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+          "
+          placeholder="+57 123 456 789"
+        />
+      </div>
+    </div>
+
+    <!-- Subject -->
+    <div>
+      <label
+        for="contact_subject"
+        style="
+          display: block;
+          font-weight: 500;
+          color: var(--text-dark);
+          margin-bottom: 0.5rem;
+        "
+      >
+        Asunto *
+      </label>
+      <select
+        id="contact_subject"
+        name="subject"
+        required
+        style="
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius-sm);
+          font-family: var(--font-body);
+          font-size: 1rem;
+          background-color: white;
+        "
+      >
+        <option value="">Selecciona un tema</option>
+        <option value="demo">Solicitar demostración</option>
+        <option value="sales">Consulta comercial</option>
+        <option value="support">Soporte técnico</option>
+        <option value="partnership">Partnership</option>
+        <option value="press">Prensa y medios</option>
+        <option value="careers">Oportunidades de empleo</option>
+        <option value="other">Otro</option>
+      </select>
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label
+        for="contact_message"
+        style="
+          display: block;
+          font-weight: 500;
+          color: var(--text-dark);
+          margin-bottom: 0.5rem;
+        "
+      >
+        Mensaje *
+      </label>
+      <textarea
+        id="contact_message"
+        name="message"
+        required
+        rows="5"
+        style="
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius-sm);
+          font-family: var(--font-body);
+          font-size: 1rem;
+          resize: vertical;
+          min-height: 120px;
+        "
+        placeholder="Cuéntanos más sobre tu consulta..."
+      ></textarea>
+    </div>
+
+    <!-- Newsletter -->
+    <div style="display: flex; align-items: flex-start; gap: 0.75rem">
+      <input
+        type="checkbox"
+        id="newsletter"
+        name="newsletter"
+        style="margin-top: 0.25rem"
+      />
+      <label
+        for="newsletter"
+        style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.4"
+      >
+        Suscribirme al newsletter para recibir actualizaciones sobre nuevas
+        funciones y consejos de marketing digital
+      </label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn--primary btn--large btn--full">
+      Enviar Mensaje →
+    </button>
+
+    <p
+      style="
+        text-align: center;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin: 0;
+      "
+    >
+      Normalmente respondemos en menos de 2 horas durante horario laboral
+    </p>
+  </form>
+</div>
+
+<!-- Office Information -->
+<div
+  class="card animate-fadeInUp"
+  style="
+    background: linear-gradient(135deg, var(--accent-color) 0%, #f0f4ff 100%);
+  "
+>
+  <div class="card__header text-center">
+    <h2 class="card__title" style="color: var(--text-dark)">
+      Nuestras Oficinas
+    </h2>
+  </div>
+  <div class="card__content">
+    <div class="grid grid--2">
+      <div style="text-align: center; padding: 2rem">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🇪🇸</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 1rem">
+          Madrid, España
+        </h4>
+        <div
+          style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6"
+        >
+          <p style="margin: 0 0 0.5rem 0">Calle Serrano 95, 5ª planta</p>
+          <p style="margin: 0 0 0.5rem 0">28006 Madrid</p>
+          <p style="margin: 0 0 1rem 0">España</p>
+          <p style="margin: 0; font-weight: 500">Lun - Vie: 9:00 - 18:00 CET</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding: 2rem">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem"
+          >🇧🇷</span
+        >
+        <h4 style="color: var(--primary-color); margin-bottom: 1rem">
+          São Paulo, Brasil
+        </h4>
+        <div
+          style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6"
+        >
+          <p style="margin: 0 0 0.5rem 0">Av. Paulista 1000, 10º andar</p>
+          <p style="margin: 0 0 0.5rem 0">01310-100 São Paulo</p>
+          <p style="margin: 0 0 1rem 0">Brasil</p>
+          <p style="margin: 0; font-weight: 500">Lun - Vie: 9:00 - 18:00 BRT</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ for Contact -->
+<div class="animate-fadeInUp" style="margin-top: 3rem">
+  <h2 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark)">
+    Preguntas Frecuentes sobre Soporte
+  </h2>
+
+  <div class="grid grid--2">
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title">¿Cuándo es el mejor momento para contactar?</h3>
+      </div>
+      <div class="card__content">
+        <p class="card__description">
+          Nuestro equipo está disponible de lunes a viernes de 9:00 a 18:00 CET.
+          Para consultas urgentes, tenemos soporte de emergencia 24/7 para
+          clientes Enterprise.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title">¿Ofrecen demostraciones personalizadas?</h3>
+      </div>
+      <div class="card__content">
+        <p class="card__description">
+          Sí, ofrecemos demos de 30 minutos completamente personalizadas.
+          Selecciona "Solicitar demostración" en el formulario y nos pondremos
+          en contacto para agendar.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title">¿En qué idiomas ofrecen soporte?</h3>
+      </div>
+      <div class="card__content">
+        <p class="card__description">
+          Ofrecemos soporte en español, inglés y portugués. Nuestro equipo está
+          distribuido globalmente para cubrir diferentes zonas horarias.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title">¿Cómo es el proceso de onboarding?</h3>
+      </div>
+      <div class="card__content">
+        <p class="card__description">
+          Incluye una sesión de configuración inicial, training personalizado y
+          seguimiento durante los primeros 30 días para asegurar tu éxito con la
+          plataforma.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
