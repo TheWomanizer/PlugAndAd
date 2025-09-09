@@ -1,7 +1,14 @@
-{% extends 'website/about/base_about.html' %} {% block hero_title %}Conoce al
-Equipo{% endblock %} {% block hero_subtitle %}Los expertos que están
-construyendo el futuro de la publicidad digital{% endblock %} {% block
-about_content %}
+{% extends 'website/about/base_about.html' %}
+
+{% block hero_title %}
+Conoce al Equipo
+{% endblock %}
+
+{% block hero_subtitle %}
+Los expertos que están construyendo el futuro de la publicidad digital
+{% endblock %}
+
+{% block about_content %}
 <!-- Team Introduction -->
 <div class="card animate-fadeInUp text-center" style="margin-bottom: 3rem">
   <div class="card__content">
@@ -27,8 +34,8 @@ about_content %}
     Liderazgo
   </h2>
   <div class="team-grid">
-    {% for member in team_members %} {% if forloop.counter <= 2 %}
-    <div class="team-card animate-fadeInUp animate-delay-{{ forloop.counter }}">
+    {% for member in team_members %} {% if forloop.counter == 1 %}
+    <div class="team-card animate-fadeInUp animate-delay-1">
       <span class="team-card__avatar">{{ member.image }}</span>
       <h3 class="team-card__name">{{ member.name }}</h3>
       <p class="team-card__role">{{ member.role }}</p>
@@ -47,7 +54,7 @@ about_content %}
     Equipo Principal
   </h2>
   <div class="team-grid">
-    {% for member in team_members %} {% if forloop.counter > 2 %}
+    {% for member in team_members %} {% if forloop.counter > 1 %}
     <div class="team-card animate-fadeInUp animate-delay-{{ forloop.counter }}">
       <span class="team-card__avatar">{{ member.image }}</span>
       <h3 class="team-card__name">{{ member.name }}</h3>

@@ -1,41 +1,55 @@
-{% extends 'website/about/base_about.html' %} {% block hero_title %}Contacta con
-Nosotros{% endblock %} {% block hero_subtitle %}Estamos aquí para ayudarte.
-Ponte en contacto con nuestro equipo{% endblock %} {% block about_content %}
+{% extends 'website/about/base_about.html' %}
+
+{% block hero_title %}
+Contacta con Nosotros
+{% endblock %}
+
+{% block hero_subtitle %}
+Estamos aquí para ayudarte. Ponte en contacto con nuestro equipo
+{% endblock %}
+
+{% block about_content %}
 <!-- Contact Options -->
 <div class="grid grid--3" style="margin-bottom: 3rem">
-  <div class="card animate-fadeInUp text-center">
-    <div style="font-size: 3rem; margin-bottom: 1rem">💬</div>
-    <h3 class="card__title">Chat en Vivo</h3>
-    <p class="card__description">
-      Habla directamente con nuestro equipo de soporte. Disponible de 9:00 a
-      18:00 CET.
-    </p>
-    <div class="card__footer">
-      <a href="#" class="btn btn--primary">Iniciar Chat</a>
+  <div class="card text-center">
+    <div class="card__content">
+      <div style="font-size: 3rem; margin-bottom: 1rem">💬</div>
+      <h3 class="card__title">Chat en Vivo</h3>
+      <p class="card__description">
+        Habla directamente con nuestro equipo de soporte. Disponible de 9:00 a
+        18:00 CET.
+      </p>
+      <div style="margin-top: 1rem">
+        <a href="#" class="btn btn--primary">Iniciar Chat</a>
+      </div>
     </div>
   </div>
 
-  <div class="card animate-fadeInUp animate-delay-1 text-center">
-    <div style="font-size: 3rem; margin-bottom: 1rem">📧</div>
-    <h3 class="card__title">Email</h3>
-    <p class="card__description">
-      Envíanos un email y te responderemos en menos de 24 horas.
-    </p>
-    <div class="card__footer">
-      <a href="mailto:hello@plugandad.com" class="btn btn--secondary"
-        >hello@plugandad.com</a
-      >
+  <div class="card text-center">
+    <div class="card__content">
+      <div style="font-size: 3rem; margin-bottom: 1rem">📧</div>
+      <h3 class="card__title">Email</h3>
+      <p class="card__description">
+        Envíanos un email y te responderemos en menos de 24 horas.
+      </p>
+      <div style="margin-top: 1rem">
+        <a href="mailto:hello@plugandad.com" class="btn btn--secondary"
+          >hello@plugandad.com</a
+        >
+      </div>
     </div>
   </div>
 
-  <div class="card animate-fadeInUp animate-delay-2 text-center">
-    <div style="font-size: 3rem; margin-bottom: 1rem">📞</div>
-    <h3 class="card__title">Teléfono</h3>
-    <p class="card__description">
-      Llámanos para consultas urgentes o demostraciones personalizadas.
-    </p>
-    <div class="card__footer">
-      <a href="tel:+34910123456" class="btn btn--secondary">+34 910 123 456</a>
+  <div class="card text-center">
+    <div class="card__content">
+      <div style="font-size: 3rem; margin-bottom: 1rem">📞</div>
+      <h3 class="card__title">Teléfono</h3>
+      <p class="card__description">
+        Llámanos para consultas urgentes o demostraciones personalizadas.
+      </p>
+      <div style="margin-top: 1rem">
+        <a href="tel:+34910123456" class="btn btn--secondary">+34 910 123 456</a>
+      </div>
     </div>
   </div>
 </div>
