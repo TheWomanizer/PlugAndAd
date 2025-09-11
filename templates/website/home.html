@@ -6,19 +6,18 @@ Aumenta tu ROAS{% endblock %} {% block content %}
     <div class="hero__content">
       <div class="hero__text">
         <h1 class="hero__title">
-          Automatiza tus Ads.<br />
-          Aumenta tu ROAS.
+          Escalea tus Ads con IA<br />
+          — sin complejidad
         </h1>
         <p class="hero__subtitle">
-          Crea la campaña perfecta combinando paquetes de Google, Meta y TikTok.
-          Publicidad, simplificada.
+          Integra todas tus plataformas publicitarias, automatiza la optimización con IA y maximiza tu ROAS sin esfuerzo manual.
         </p>
         <div class="hero__buttons">
-          <a href="{% url 'signup' %}" class="btn btn--primary btn--large">
+          <a href="{% url 'login' %}" class="btn btn--primary btn--large">
             Comenzar →
           </a>
-          <a href="{% url 'packages' %}" class="btn btn--secondary btn--large">
-            Explorar paquetes
+          <a href="#conexiones" class="btn btn--secondary btn--large">
+            Ver cómo funciona
           </a>
         </div>
       </div>
@@ -43,9 +42,9 @@ Aumenta tu ROAS{% endblock %} {% block content %}
 <section class="section section--bg">
   <div class="container">
     <div class="section__header">
-      <h2 class="section__title">Sincroniza tus cuentas</h2>
+      <h2 class="section__title">Multicanal real</h2>
       <p class="section__subtitle">
-        Conecta con las principales plataformas publicitarias en segundos
+        Unifica Google Ads, Meta Ads y TikTok Ads en un único flujo de trabajo
       </p>
     </div>
 
@@ -235,9 +234,9 @@ Aumenta tu ROAS{% endblock %} {% block content %}
 <section class="section">
   <div class="container">
     <div class="section__header">
-      <h2 class="section__title">Mezcla y combina campañas</h2>
+      <h2 class="section__title">Optimización continua</h2>
       <p class="section__subtitle">
-        Tres pasos simples para automatizar tus ads
+        Reglas + recomendaciones con IA para mejorar rendimiento
       </p>
     </div>
 
@@ -282,9 +281,9 @@ Aumenta tu ROAS{% endblock %} {% block content %}
 <section class="section section--white">
   <div class="container">
     <div class="section__header">
-      <h2 class="section__title">Lanza y analiza</h2>
+      <h2 class="section__title">Reporting claro</h2>
       <p class="section__subtitle">
-        Métricas en tiempo real para optimizar tus campañas
+        Panel unificado con métricas clave y alertas
       </p>
     </div>
 
@@ -427,21 +426,72 @@ Aumenta tu ROAS{% endblock %} {% block content %}
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="section section--bg">
+<!-- Conexiones Section -->
+<section class="section section--bg" id="conexiones">
   <div class="container">
-    <div class="card text-center" style="max-width: 600px; margin: 0 auto">
+    <div class="section__header">
+      <h2 class="section__title">Cómo Funciona PlugAndAd</h2>
+      <p class="section__subtitle">
+        Conecta, optimiza y escala tus campañas publicitarias en 3 pasos simples
+      </p>
+    </div>
+
+    <div class="grid grid--3" style="margin-bottom: 3rem;">
+      <div class="card feature">
+        <span class="feature__icon">🔗</span>
+        <div class="card__content">
+          <h3 class="feature__title">1. Conecta tus Cuentas</h3>
+          <p class="feature__description">
+            Integra Google Ads, Meta Business, TikTok Ads y LinkedIn en segundos con OAuth 2.0 seguro.
+          </p>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; text-align: left;">
+            <li>✓ Configuración en 1 clic</li>
+            <li>✓ Sincronización automática</li>
+            <li>✓ Sin límite de cuentas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card feature">
+        <span class="feature__icon">🤖</span>
+        <div class="card__content">
+          <h3 class="feature__title">2. IA Optimiza por Ti</h3>
+          <p class="feature__description">
+            Nuestros algoritmos analizan performance 24/7 y ajustan pujas, audiencias y presupuestos automáticamente.
+          </p>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; text-align: left;">
+            <li>✓ Machine Learning avanzado</li>
+            <li>✓ Optimización en tiempo real</li>
+            <li>✓ Reglas personalizables</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card feature">
+        <span class="feature__icon">📊</span>
+        <div class="card__content">
+          <h3 class="feature__title">3. Monitorea Resultados</h3>
+          <p class="feature__description">
+            Dashboard unificado con métricas clave, alertas inteligentes y reportes automáticos por email.
+          </p>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; text-align: left;">
+            <li>✓ Vista consolidada</li>
+            <li>✓ Alertas proactivas</li>
+            <li>✓ Reportes programados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-center" style="max-width: 700px; margin: 0 auto; background: linear-gradient(135deg, var(--accent-color) 0%, #f0f4ff 100%);">
       <div class="card__header">
-        <h3 class="card__title">Explora todos los paquetes</h3>
-        <p class="card__description">
-          Descubre nuestra biblioteca completa de templates, audiencias y
-          estrategias publicitarias
+        <h3 class="card__title" style="color: var(--text-dark);">¿Listo para Comenzar?</h3>
+        <p class="card__description" style="color: var(--text-muted);">
+          Únete a más de 1,000 empresas que ya optimizan sus campañas con PlugAndAd
         </p>
       </div>
       <div class="card__footer">
-        <a href="{% url 'packages' %}" class="btn btn--primary btn--large"
-          >Ver catálogo</a
-        >
+        <a href="{% url 'login' %}" class="btn btn--primary btn--large">Comenzar Gratis →</a>
       </div>
     </div>
   </div>
@@ -486,7 +536,7 @@ Aumenta tu ROAS{% endblock %} {% block content %}
           Sobre nosotros
         </a>
         <a
-          href="{% url 'signup' %}"
+          href="{% url 'login' %}"
           class="btn btn--primary btn--large"
           style="min-width: 200px"
         >

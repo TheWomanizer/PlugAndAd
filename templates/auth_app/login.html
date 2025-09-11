@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}Iniciar Sesión - Plug&Ad{% endblock %}
+
+{% block content %}
+<section class="section" style="min-height: 80vh; display: flex; align-items: center;">
+  <div class="container">
+    <div class="card" style="max-width: 500px; margin: 0 auto;">
+      <div class="card__header text-center">
+        <h1 class="card__title">Bienvenido a PlugAndAd</h1>
+        <p class="card__description">
+          Inicia sesión para acceder a tu panel de control
+        </p>
+      </div>
+      
+      <form class="card__content" method="post" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        {% csrf_token %}
+        
+        {% if messages %}
+          {% for message in messages %}
+            <div style="padding: 1rem; background-color: {% if message.tags == 'error' %}#fee2e2; color: #dc2626;{% else %}#dcfce7; color: #16a34a;{% endif %} border-radius: var(--radius-sm); margin-bottom: 1rem;">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+        <div>
+          <label for="username" style="display: block; font-weight: 500; color: var(--text-dark); margin-bottom: 0.5rem;">
+            Usuario o Email
+          </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            style="
+              width: 100%;
+              padding: 0.75rem;
+              border: 1px solid var(--border-color);
+              border-radius: var(--radius-sm);
+              font-family: var(--font-body);
+              font-size: 1rem;
+            "
+            placeholder="tu@empresa.com"
+          />
+        </div>
+        
+        <div>
+          <label for="password" style="display: block; font-weight: 500; color: var(--text-dark); margin-bottom: 0.5rem;">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            style="
+              width: 100%;
+              padding: 0.75rem;
+              border: 1px solid var(--border-color);
+              border-radius: var(--radius-sm);
+              font-family: var(--font-body);
+              font-size: 1rem;
+            "
+            placeholder="••••••••"
+          />
+        </div>
+        
+        <div style="display: flex; align-items: center; justify-content: between; gap: 1rem;">
+          <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted);">
+            <input type="checkbox" name="remember_me" style="margin: 0;">
+            Recordarme
+          </label>
+          <a href="#" style="font-size: 0.875rem; color: var(--primary-color); text-decoration: none;">
+            ¿Olvidaste tu contraseña?
+          </a>
+        </div>
+        
+        <button type="submit" class="btn btn--primary btn--large btn--full">
+          Iniciar Sesión →
+        </button>
+      </form>
+      
+      <div class="card__footer text-center" style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+          ¿No tienes una cuenta?
+        </p>
+        <a href="{% url 'auth_signup' %}" class="btn btn--secondary btn--large">
+          Crear Cuenta Gratis
+        </a>
+      </div>
+    </div>
+    
+    <!-- Benefits Section -->
+    <div style="margin-top: 3rem; text-align: center;">
+      <h3 style="color: var(--text-dark); margin-bottom: 2rem;">
+        ¿Por qué elegir PlugAndAd?
+      </h3>
+      <div class="grid grid--3" style="max-width: 800px; margin: 0 auto;">
+        <div style="text-align: center; padding: 1rem;">
+          <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">🤖</span>
+          <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">IA Avanzada</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">
+            Optimización automática de campañas con machine learning
+          </p>
+        </div>
+        <div style="text-align: center; padding: 1rem;">
+          <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">🎯</span>
+          <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Multicanal</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">
+            Google, Meta, TikTok y LinkedIn en una sola plataforma
+          </p>
+        </div>
+        <div style="text-align: center; padding: 1rem;">
+          <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">📈</span>
+          <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">ROAS 4.2x</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">
+            Retorno promedio de inversión publicitaria
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

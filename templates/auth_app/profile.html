@@ -1,0 +1,253 @@
+{% extends 'base_dashboard.html' %}
+
+{% block title %}Mi Perfil - Plug&Ad{% endblock %}
+
+{% block dashboard_content %}
+<!-- Profile Header -->
+<div class="card" style="margin-bottom: 2rem;">
+  <div class="card__content">
+    <div style="display: flex; justify-content: between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1 style="color: var(--text-dark); margin-bottom: 0.5rem;">
+          👤 Mi Perfil
+        </h1>
+        <p style="color: var(--text-muted); margin: 0;">
+          Gestiona tu información personal y configuración de cuenta
+        </p>
+      </div>
+      <div>
+        <a href="{% url 'dashboard' %}" class="btn btn--secondary">
+          ← Volver al Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid grid--2">
+  <!-- Personal Information -->
+  <div class="card">
+    <div class="card__header">
+      <h3 class="card__title">Información Personal</h3>
+      <p class="card__description">Actualiza tus datos de contacto</p>
+    </div>
+    
+    <form class="card__content" method="post" style="display: flex; flex-direction: column; gap: 1.5rem;">
+      {% csrf_token %}
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div>
+          <label for="first_name" style="display: block; font-weight: 500; color: var(--text-dark); margin-bottom: 0.5rem;">
+            Nombre
+          </label>
+          <input
+            type="text"
+            id="first_name"
+            name="first_name"
+            value="{{ user.first_name }}"
+            style="
+              width: 100%;
+              padding: 0.75rem;
+              border: 1px solid var(--border-color);
+              border-radius: var(--radius-sm);
+              font-family: var(--font-body);
+              font-size: 1rem;
+            "
+            placeholder="Tu nombre"
+          />
+        </div>
+        
+        <div>
+          <label for="last_name" style="display: block; font-weight: 500; color: var(--text-dark); margin-bottom: 0.5rem;">
+            Apellido
+          </label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            value="{{ user.last_name }}"
+            style="
+              width: 100%;
+              padding: 0.75rem;
+              border: 1px solid var(--border-color);
+              border-radius: var(--radius-sm);
+              font-family: var(--font-body);
+              font-size: 1rem;
+            "
+            placeholder="Tu apellido"
+          />
+        </div>
+      </div>
+      
+      <div>
+        <label for="email" style="display: block; font-weight: 500; color: var(--text-dark); margin-bottom: 0.5rem;">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value="{{ user.email }}"
+          style="
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+          "
+          placeholder="tu@empresa.com"
+        />
+      </div>
+      
+      <div>
+        <label for="username" style="display: block; font-weight: 500; color: var(--text-dark); margin-bottom: 0.5rem;">
+          Usuario
+        </label>
+        <input
+          type="text"
+          id="username"
+          value="{{ user.username }}"
+          disabled
+          style="
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background-color: #f8f9fa;
+            color: var(--text-muted);
+          "
+        />
+        <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
+          El nombre de usuario no se puede cambiar
+        </p>
+      </div>
+      
+      <button type="submit" class="btn btn--primary btn--large">
+        Guardar Cambios
+      </button>
+    </form>
+  </div>
+  
+  <!-- Account Information -->
+  <div>
+    <div class="card" style="margin-bottom: 2rem;">
+      <div class="card__header">
+        <h3 class="card__title">Información de Cuenta</h3>
+      </div>
+      <div class="card__content">
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="display: flex; justify-content: between; padding: 1rem; background: #f8f9fa; border-radius: var(--radius-sm);">
+            <span style="color: var(--text-muted);">Miembro desde:</span>
+            <span style="color: var(--text-dark); font-weight: 500;">{{ user.date_joined|date:"d/m/Y" }}</span>
+          </div>
+          <div style="display: flex; justify-content: between; padding: 1rem; background: #f8f9fa; border-radius: var(--radius-sm);">
+            <span style="color: var(--text-muted);">Último acceso:</span>
+            <span style="color: var(--text-dark); font-weight: 500;">{{ user.last_login|date:"d/m/Y H:i" }}</span>
+          </div>
+          <div style="display: flex; justify-content: between; padding: 1rem; background: #f8f9fa; border-radius: var(--radius-sm);">
+            <span style="color: var(--text-muted);">Plan actual:</span>
+            <span style="color: var(--primary-color); font-weight: 600;">Prueba Gratuita</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Subscription Info -->
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title">Suscripción</h3>
+      </div>
+      <div class="card__content text-center">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🆓</span>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Prueba Gratuita</h4>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+          14 días restantes • Acceso completo a todas las funciones
+        </p>
+        
+        <div style="background: #f8f9fa; padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem;">
+          <h5 style="color: var(--text-dark); margin-bottom: 0.75rem;">Lo que incluye:</h5>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; text-align: left; margin: 0; padding-left: 1.5rem;">
+            <li>Hasta 2 cuentas publicitarias</li>
+            <li>Dashboard completo con métricas</li>
+            <li>Reglas básicas de optimización</li>
+            <li>Soporte por email</li>
+            <li>Reportes semanales</li>
+          </ul>
+        </div>
+        
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+          <a href="{% url 'pricing' %}" class="btn btn--primary">
+            Ver Planes Pagos
+          </a>
+          <button class="btn btn--secondary" onclick="cancelTrial()">
+            Cancelar Prueba
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Security Section -->
+<div class="card" style="margin-top: 2rem;">
+  <div class="card__header">
+    <h3 class="card__title">🔐 Seguridad</h3>
+    <p class="card__description">Gestiona la seguridad de tu cuenta</p>
+  </div>
+  <div class="card__content">
+    <div class="grid grid--3">
+      <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+        <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">🔑</span>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Cambiar Contraseña</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          Actualiza tu contraseña por seguridad
+        </p>
+        <button class="btn btn--secondary btn--small" onclick="changePassword()">
+          Cambiar
+        </button>
+      </div>
+      
+      <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+        <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">📱</span>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Autenticación 2FA</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          Próximamente disponible
+        </p>
+        <button class="btn btn--secondary btn--small" disabled>
+          Configurar
+        </button>
+      </div>
+      
+      <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+        <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">📊</span>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Descargar Datos</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          Exporta toda tu información
+        </p>
+        <button class="btn btn--secondary btn--small" onclick="exportData()">
+          Descargar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function cancelTrial() {
+    if (confirm('¿Estás seguro de que quieres cancelar tu prueba gratuita? Perderás acceso a todas las funciones.')) {
+        alert('Para cancelar, contáctanos en hello@plugandad.com');
+    }
+}
+
+function changePassword() {
+    alert('Funcionalidad próximamente. Por ahora contáctanos en hello@plugandad.com para cambiar tu contraseña.');
+}
+
+function exportData() {
+    alert('Preparando exportación de datos... Te enviaremos un email con el archivo en unos minutos.');
+}
+</script>
+{% endblock %}

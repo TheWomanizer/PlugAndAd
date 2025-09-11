@@ -1,0 +1,365 @@
+{% extends 'base_dashboard.html' %}
+
+{% block title %}Paquetes - Plug&Ad{% endblock %}
+
+{% block dashboard_content %}
+<!-- Packages Header -->
+<div class="card" style="margin-bottom: 2rem;">
+  <div class="card__content">
+    <div style="display: flex; justify-content: between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1 style="color: var(--text-dark); margin-bottom: 0.5rem;">
+          📦 Catálogo de Paquetes
+        </h1>
+        <p style="color: var(--text-muted); margin: 0;">
+          Templates, audiencias y estrategias publicitarias probadas para maximizar tu ROAS
+        </p>
+      </div>
+      <div style="display: flex; gap: 1rem;">
+        <a href="{% url 'cart' %}" class="btn btn--secondary">
+          🛒 Ver Carrito
+        </a>
+        <a href="{% url 'dashboard' %}" class="btn btn--secondary">
+          ← Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Filter Tabs -->
+<div style="display: flex; justify-content: center; margin-bottom: 3rem;">
+    <div style="display: inline-flex; background-color: var(--accent-color); border-radius: var(--radius-sm); padding: 0.25rem;">
+        <button class="filter-btn active" data-filter="all" style="padding: 0.75rem 1.5rem; border: none; background: var(--white); color: var(--primary-color); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;">
+            Todos
+        </button>
+        <button class="filter-btn" data-filter="google" style="padding: 0.75rem 1.5rem; border: none; background: transparent; color: var(--text-muted); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;">
+            Google Ads
+        </button>
+        <button class="filter-btn" data-filter="meta" style="padding: 0.75rem 1.5rem; border: none; background: transparent; color: var(--text-muted); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;">
+            Meta Ads
+        </button>
+        <button class="filter-btn" data-filter="tiktok" style="padding: 0.75rem 1.5rem; border: none; background: transparent; color: var(--text-muted); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;">
+            TikTok Ads
+        </button>
+    </div>
+</div>
+
+<!-- Packages Grid -->
+<div class="grid grid--3">
+    <!-- Google Ads Packages -->
+    <div class="card package-card" data-category="google">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">🎯</span>
+            <div>
+                <h3 class="card__title" style="margin-bottom: 0.25rem;">E-commerce Starter</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted); background-color: var(--accent-color); padding: 0.25rem 0.5rem; border-radius: 12px; text-transform: uppercase; font-weight: 600;">Google Ads</span>
+            </div>
+        </div>
+        <p class="card__description">
+            Campaña optimizada para tiendas online que empiezan. Incluye segmentación por intereses y remarketing básico.
+        </p>
+        <div style="margin: 1.5rem 0;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">ROAS promedio:</span>
+                <span style="font-weight: 600; color: var(--primary-color);">3.8x</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Configuración:</span>
+                <span style="font-weight: 600;">5 min</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Presupuesto mín:</span>
+                <span style="font-weight: 600;">$500/mes</span>
+            </div>
+        </div>
+        <div class="card__footer">
+            <button onclick="addToCart('e-commerce-starter', 'E-commerce Starter', 99)" class="btn btn--secondary btn--full">Agregar al Carrito - $99</button>
+        </div>
+    </div>
+    
+    <div class="card package-card" data-category="google">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">🎯</span>
+            <div>
+                <h3 class="card__title" style="margin-bottom: 0.25rem;">Local Business Pro</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted); background-color: var(--accent-color); padding: 0.25rem 0.5rem; border-radius: 12px; text-transform: uppercase; font-weight: 600;">Google Ads</span>
+            </div>
+        </div>
+        <p class="card__description">
+            Perfecto para negocios locales. Incluye anuncios de búsqueda local, Google My Business y geolocalización avanzada.
+        </p>
+        <div style="margin: 1.5rem 0;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">ROAS promedio:</span>
+                <span style="font-weight: 600; color: var(--primary-color);">5.2x</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Configuración:</span>
+                <span style="font-weight: 600;">10 min</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Presupuesto mín:</span>
+                <span style="font-weight: 600;">$300/mes</span>
+            </div>
+        </div>
+        <div class="card__footer">
+            <button onclick="addToCart('local-business-pro', 'Local Business Pro', 129)" class="btn btn--secondary btn--full">Agregar al Carrito - $129</button>
+        </div>
+    </div>
+    
+    <!-- Meta Ads Packages -->
+    <div class="card package-card" data-category="meta">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">📱</span>
+            <div>
+                <h3 class="card__title" style="margin-bottom: 0.25rem;">Social Commerce</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted); background-color: var(--accent-color); padding: 0.25rem 0.5rem; border-radius: 12px; text-transform: uppercase; font-weight: 600;">Meta Ads</span>
+            </div>
+        </div>
+        <p class="card__description">
+            Campaña completa para venta en Instagram y Facebook. Incluye Shops, catálogo dinámico y pixel de conversión.
+        </p>
+        <div style="margin: 1.5rem 0;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">ROAS promedio:</span>
+                <span style="font-weight: 600; color: var(--primary-color);">4.5x</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Configuración:</span>
+                <span style="font-weight: 600;">15 min</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Presupuesto mín:</span>
+                <span style="font-weight: 600;">$800/mes</span>
+            </div>
+        </div>
+        <div class="card__footer">
+            <button onclick="addToCart('social-commerce', 'Social Commerce', 149)" class="btn btn--secondary btn--full">Agregar al Carrito - $149</button>
+        </div>
+    </div>
+    
+    <div class="card package-card" data-category="meta">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">📱</span>
+            <div>
+                <h3 class="card__title" style="margin-bottom: 0.25rem;">Brand Awareness+</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted); background-color: var(--accent-color); padding: 0.25rem 0.5rem; border-radius: 12px; text-transform: uppercase; font-weight: 600;">Meta Ads</span>
+            </div>
+        </div>
+        <p class="card__description">
+            Aumenta el reconocimiento de tu marca con video ads y creatividades virales. Ideal para lanzamientos.
+        </p>
+        <div style="margin: 1.5rem 0;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">ROAS promedio:</span>
+                <span style="font-weight: 600; color: var(--primary-color);">3.1x</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Configuración:</span>
+                <span style="font-weight: 600;">20 min</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Presupuesto mín:</span>
+                <span style="font-weight: 600;">$1000/mes</span>
+            </div>
+        </div>
+        <div class="card__footer">
+            <button onclick="addToCart('brand-awareness-plus', 'Brand Awareness+', 179)" class="btn btn--secondary btn--full">Agregar al Carrito - $179</button>
+        </div>
+    </div>
+    
+    <!-- TikTok Ads Packages -->
+    <div class="card package-card" data-category="tiktok">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">🎵</span>
+            <div>
+                <h3 class="card__title" style="margin-bottom: 0.25rem;">Gen Z Viral</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted); background-color: var(--accent-color); padding: 0.25rem 0.5rem; border-radius: 12px; text-transform: uppercase; font-weight: 600;">TikTok Ads</span>
+            </div>
+        </div>
+        <p class="card__description">
+            Conecta con audiencias jóvenes usando contenido viral y trends. Optimizado para engagement y conversiones.
+        </p>
+        <div style="margin: 1.5rem 0;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">ROAS promedio:</span>
+                <span style="font-weight: 600; color: var(--primary-color);">4.8x</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Configuración:</span>
+                <span style="font-weight: 600;">8 min</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Presupuesto mín:</span>
+                <span style="font-weight: 600;">$600/mes</span>
+            </div>
+        </div>
+        <div class="card__footer">
+            <button onclick="addToCart('gen-z-viral', 'Gen Z Viral', 139)" class="btn btn--secondary btn--full">Agregar al Carrito - $139</button>
+        </div>
+    </div>
+    
+    <div class="card package-card" data-category="tiktok">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">🎵</span>
+            <div>
+                <h3 class="card__title" style="margin-bottom: 0.25rem;">Creator Partnership</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted); background-color: var(--accent-color); padding: 0.25rem 0.5rem; border-radius: 12px; text-transform: uppercase; font-weight: 600;">TikTok Ads</span>
+            </div>
+        </div>
+        <p class="card__description">
+            Colabora con creators para contenido auténtico. Incluye Spark Ads y gestión de influencers automática.
+        </p>
+        <div style="margin: 1.5rem 0;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">ROAS promedio:</span>
+                <span style="font-weight: 600; color: var(--primary-color);">6.2x</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Configuración:</span>
+                <span style="font-weight: 600;">25 min</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Presupuesto mín:</span>
+                <span style="font-weight: 600;">$1200/mes</span>
+            </div>
+        </div>
+        <div class="card__footer">
+            <button onclick="addToCart('creator-partnership', 'Creator Partnership', 199)" class="btn btn--secondary btn--full">Agregar al Carrito - $199</button>
+        </div>
+    </div>
+    
+    <!-- Multi-platform Package -->
+    <div class="card package-card" data-category="all" style="border: 2px solid var(--primary-color); position: relative;">
+        <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); color: white; padding: 0.25rem 1rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">
+            Más Popular
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="display: flex; gap: 0.25rem;">
+                <span style="font-size: 1.25rem;">🎯</span>
+                <span style="font-size: 1.25rem;">📱</span>
+                <span style="font-size: 1.25rem;">🎵</span>
+            </div>
+            <div>
+                <h3 class="card__title" style="margin-bottom: 0.25rem;">Omnichannel Master</h3>
+                <span style="font-size: 0.75rem; color: var(--primary-color); background-color: rgba(8, 31, 92, 0.1); padding: 0.25rem 0.5rem; border-radius: 12px; text-transform: uppercase; font-weight: 600;">Multi-plataforma</span>
+            </div>
+        </div>
+        <p class="card__description">
+            Campaña completa que combina Google, Meta y TikTok. Audiencias compartidas, remarketing cross-platform y optimización con IA.
+        </p>
+        <div style="margin: 1.5rem 0;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">ROAS promedio:</span>
+                <span style="font-weight: 600; color: var(--primary-color);">7.1x</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Configuración:</span>
+                <span style="font-weight: 600;">12 min</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-size: 0.875rem; color: var(--text-muted);">Presupuesto mín:</span>
+                <span style="font-weight: 600;">$2000/mes</span>
+            </div>
+        </div>
+        <div class="card__footer">
+            <button onclick="addToCart('omnichannel-master', 'Omnichannel Master', 299)" class="btn btn--primary btn--full">Agregar al Carrito - $299</button>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="card text-center" style="margin-top: 3rem;">
+    <div class="card__header">
+        <h2 class="card__title">¿No encuentras lo que buscas?</h2>
+        <p class="card__description">
+            Nuestro equipo puede crear un paquete personalizado para tu industria y objetivos específicos.
+        </p>
+    </div>
+    <div class="card__footer">
+        <a href="{% url 'about_contact' %}" class="btn btn--primary btn--large" style="margin-right: 1rem;">
+            Solicitar paquete custom
+        </a>
+        <a href="{% url 'pricing' %}" class="btn btn--secondary btn--large">
+            Ver suscripciones
+        </a>
+    </div>
+</div>
+
+<!-- Filter and Cart Script -->
+<script>
+let cart = JSON.parse(localStorage.getItem('plugandad_cart')) || [];
+
+function addToCart(id, name, price) {
+    const existingItem = cart.find(item => item.id === id);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+    
+    localStorage.setItem('plugandad_cart', JSON.stringify(cart));
+    
+    // Show success message
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = '✓ Agregado al Carrito';
+    button.style.backgroundColor = '#16a34a';
+    
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.backgroundColor = '';
+    }, 2000);
+    
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartLink = document.querySelector('a[href="/auth/cart/"]');
+    if (cartLink && cartCount > 0) {
+        cartLink.innerHTML = `🛒 Carrito (${cartCount})`;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const packageCards = document.querySelectorAll('.package-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.backgroundColor = 'transparent';
+                btn.style.color = 'var(--text-muted)';
+            });
+            
+            this.classList.add('active');
+            this.style.backgroundColor = 'var(--white)';
+            this.style.color = 'var(--primary-color)';
+            
+            // Filter packages
+            const filter = this.getAttribute('data-filter');
+            
+            packageCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter || card.getAttribute('data-category') === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends 'base_dashboard.html' %}
+
+{% block title %}Suscripciones - Plug&Ad{% endblock %}
+
+{% block dashboard_content %}
+<!-- Pricing Header -->
+<div class="card" style="margin-bottom: 2rem;">
+  <div class="card__content">
+    <div style="display: flex; justify-content: between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1 style="color: var(--text-dark); margin-bottom: 0.5rem;">
+          💎 Suscripciones
+        </h1>
+        <p style="color: var(--text-muted); margin: 0;">
+          Actualiza tu plan para desbloquear más funcionalidades
+        </p>
+      </div>
+      <div>
+        <a href="{% url 'dashboard' %}" class="btn btn--secondary">
+          ← Volver al Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Current Plan -->
+<div class="card" style="margin-bottom: 3rem; background: linear-gradient(135deg, var(--accent-color) 0%, #f0f4ff 100%);">
+  <div class="card__content">
+    <div style="display: flex; justify-content: between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span style="font-size: 3rem;">🆓</span>
+        <div>
+          <h3 style="color: var(--text-dark); margin-bottom: 0.25rem;">Plan Actual: Prueba Gratuita</h3>
+          <p style="color: var(--text-muted); margin: 0;">14 días restantes • Acceso completo hasta el vencimiento</p>
+        </div>
+      </div>
+      <div style="text-align: right;">
+        <p style="color: var(--text-dark); font-weight: 600; font-size: 1.2rem; margin: 0;">$0/mes</p>
+        <p style="color: var(--text-muted); font-size: 0.875rem; margin: 0;">Vence: Próximamente</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing Plans -->
+<div class="pricing-table">
+  {% for plan in pricing_plans %}
+  <div class="card pricing-card{% if plan.popular %} pricing-card--popular{% endif %}" style="margin-bottom: 2rem;">
+    {% if plan.popular %}
+    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); color: white; padding: 0.25rem 1rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">
+      Más Popular
+    </div>
+    {% endif %}
+    
+    <div class="pricing-card__header" style="text-align: center; padding: 2rem 1.5rem 1rem;">
+      <h3 class="pricing-card__name" style="color: var(--text-dark); margin-bottom: 1rem; font-size: 1.5rem;">{{ plan.name }}</h3>
+      <div class="pricing-card__price" style="margin-bottom: 1rem;">
+        <span class="pricing-card__amount" style="font-size: 3rem; font-weight: 700; color: var(--primary-color);">${{ plan.price }}</span>
+        <span class="pricing-card__period" style="color: var(--text-muted); font-size: 1rem;">{{ plan.period }}</span>
+      </div>
+      <p class="pricing-card__description" style="color: var(--text-muted); margin: 0;">{{ plan.description }}</p>
+    </div>
+    
+    <div class="pricing-card__divider" style="height: 1px; background: var(--border-color); margin: 0 1.5rem;"></div>
+    
+    <div class="pricing-card__features" style="padding: 1.5rem;">
+      {% for feature in plan.features %}
+      <div class="pricing-card__feature" style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
+        <div class="pricing-card__feature-icon" style="color: var(--primary-color); font-weight: 600; margin-top: 0.125rem;">✓</div>
+        <span class="pricing-card__feature-text" style="color: var(--text-dark); line-height: 1.5;">{{ feature }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <div class="pricing-card__cta" style="padding: 0 1.5rem 2rem;">
+      {% if plan.name == 'Starter' %}
+        <button onclick="selectPlan('{{ plan.name }}', {{ plan.price }})" class="btn btn--secondary btn--full btn--large">
+          Seleccionar Plan
+        </button>
+      {% elif plan.name == 'Professional' %}
+        <button onclick="selectPlan('{{ plan.name }}', {{ plan.price }})" class="btn btn--primary btn--full btn--large">
+          {{ plan.cta }}
+        </button>
+      {% else %}
+        <a href="{% url 'about_contact' %}" class="btn btn--secondary btn--full btn--large">
+          {{ plan.cta }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Features Comparison -->
+<div class="card">
+  <div class="card__header text-center">
+    <h3 class="card__title">Comparación Detallada</h3>
+    <p class="card__description">Todo lo que incluye cada plan</p>
+  </div>
+  <div class="card__content">
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color);">
+            <th style="text-align: left; padding: 1rem; color: var(--text-dark);">Funcionalidad</th>
+            <th style="text-align: center; padding: 1rem; color: var(--text-dark);">Starter</th>
+            <th style="text-align: center; padding: 1rem; color: var(--text-dark);">Professional</th>
+            <th style="text-align: center; padding: 1rem; color: var(--text-dark);">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1rem; color: var(--text-dark);">Cuentas publicitarias</td>
+            <td style="text-align: center; padding: 1rem; color: var(--text-muted);">2</td>
+            <td style="text-align: center; padding: 1rem; color: var(--text-muted);">10</td>
+            <td style="text-align: center; padding: 1rem; color: var(--primary-color); font-weight: 600;">Ilimitadas</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1rem; color: var(--text-dark);">Usuarios por espacio</td>
+            <td style="text-align: center; padding: 1rem; color: var(--text-muted);">2</td>
+            <td style="text-align: center; padding: 1rem; color: var(--text-muted);">5</td>
+            <td style="text-align: center; padding: 1rem; color: var(--primary-color); font-weight: 600;">Ilimitados</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1rem; color: var(--text-dark);">Optimización con IA</td>
+            <td style="text-align: center; padding: 1rem; color: var(--text-muted);">Básica</td>
+            <td style="text-align: center; padding: 1rem; color: var(--primary-color); font-weight: 600;">✓ Avanzada</td>
+            <td style="text-align: center; padding: 1rem; color: var(--primary-color); font-weight: 600;">✓ Enterprise</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1rem; color: var(--text-dark);">API Access</td>
+            <td style="text-align: center; padding: 1rem; color: var(--text-muted);">—</td>
+            <td style="text-align: center; padding: 1rem; color: var(--text-muted);">Solo lectura</td>
+            <td style="text-align: center; padding: 1rem; color: var(--primary-color); font-weight: 600;">✓ Completa</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem; color: var(--text-dark);">Soporte</td>
+            <td style="text-align: center; padding: 1rem; color: var(--text-muted);">Email</td>
+            <td style="text-align: center; padding: 1rem; color: var(--text-muted);">Prioritario</td>
+            <td style="text-align: center; padding: 1rem; color: var(--primary-color); font-weight: 600;">Dedicado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="card" style="margin-top: 2rem;">
+  <div class="card__header text-center">
+    <h3 class="card__title">Preguntas Frecuentes</h3>
+  </div>
+  <div class="card__content">
+    <div class="grid grid--2">
+      <div>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">¿Puedo cambiar de plan?</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">
+          Sí, puedes actualizar o degradar tu plan en cualquier momento. Los cambios se reflejan inmediatamente.
+        </p>
+        
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">¿Qué incluye el soporte?</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">
+          Desde email básico hasta canal dedicado en Enterprise con onboarding personalizado.
+        </p>
+      </div>
+      
+      <div>
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">¿Hay descuentos anuales?</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">
+          Sí, ahorra 2 meses al pagar anualmente. Contáctanos para más detalles.
+        </p>
+        
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">¿Puedo cancelar cuando quiera?</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">
+          Absolutamente. Sin compromisos ni penalizaciones por cancelación.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function selectPlan(planName, price) {
+    if (confirm(`¿Quieres actualizar a ${planName} por $${price}/mes?`)) {
+        alert('Funcionalidad de pago próximamente. Te contactaremos para completar la actualización.');
+        // Here you would integrate with Stripe or similar
+    }
+}
+
+// Add date helper (simplified version)
+document.addEventListener('DOMContentLoaded', function() {
+    // This would normally be handled server-side
+});
+</script>
+
+<style>
+.pricing-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.pricing-card {
+    position: relative;
+}
+
+.pricing-card--popular {
+    border: 2px solid var(--primary-color);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .pricing-card--popular {
+        transform: none;
+    }
+}
+</style>
+{% endblock %}

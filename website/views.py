@@ -11,13 +11,13 @@ def pricing(request):
             'name': 'Starter',
             'price': 29,
             'period': '/mes',
-            'description': 'Perfecto para pequeñas empresas que empiezan con ads',
+            'description': 'Para empezar con Ads multicanal',
             'features': [
-                'Hasta 3 cuentas publicitarias',
-                'Optimización automática básica',
-                'Reportes semanales',
-                'Soporte por email',
-                'Dashboard básico',
+                'Hasta 2 cuentas publicitarias conectadas',
+                '1 espacio de trabajo / 2 usuarios',
+                'Reglas básicas y recomendaciones iniciales',
+                'Reportes semanales (email + dashboard)',
+                'Soporte por email (24–48 h)',
             ],
             'cta': 'Comenzar gratis',
             'popular': False,
@@ -26,14 +26,15 @@ def pricing(request):
             'name': 'Professional',
             'price': 99,
             'period': '/mes',
-            'description': 'Para empresas que buscan maximizar su ROAS',
+            'description': 'Para equipos que optimizan a diario',
             'features': [
-                'Hasta 10 cuentas publicitarias',
-                'Optimización con IA avanzada',
-                'Reportes diarios personalizados',
-                'Soporte prioritario 24/7',
-                'Dashboard avanzado con insights',
-                'Integración con herramientas CRM',
+                'Hasta 10 cuentas publicitarias conectadas',
+                '3 espacios / 5 usuarios',
+                'Reglas avanzadas + alertas',
+                'Recomendaciones con IA (beta)',
+                'Reportes diarios y exportación CSV',
+                'Integraciones: Slack / Looker Studio (conector)',
+                'Soporte prioritario en horario laboral (COT)',
             ],
             'cta': 'Prueba gratuita 14 días',
             'popular': True,
@@ -42,24 +43,29 @@ def pricing(request):
             'name': 'Enterprise',
             'price': 299,
             'period': '/mes',
-            'description': 'Solución completa para grandes equipos',
+            'description': 'Para operaciones multi-marca/país',
             'features': [
-                'Cuentas publicitarias ilimitadas',
-                'IA personalizada para tu industria',
-                'Reportes en tiempo real',
-                'Account Manager dedicado',
-                'Dashboard white-label',
-                'API personalizada',
-                'Integración completa con tu stack',
+                'Límite de cuentas a medida',
+                'SSO (SAML/OIDC) y roles avanzados',
+                'API de lectura/escritura y webhooks',
+                'Acompañamiento de onboarding',
+                'Acuerdos de seguridad y DPA',
+                'Soporte dedicado y canal privado',
             ],
             'cta': 'Contactar ventas',
             'popular': False,
         },
     ]
     
-    return render(request, 'website/pricing.html', {
-        'pricing_plans': pricing_plans
-    })
+    # Si el usuario está autenticado, usar template de dashboard
+    if request.user.is_authenticated:
+        return render(request, 'auth_app/pricing.html', {
+            'pricing_plans': pricing_plans
+        })
+    else:
+        return render(request, 'website/pricing.html', {
+            'pricing_plans': pricing_plans
+        })
 
 
 def signup(request):
@@ -67,7 +73,11 @@ def signup(request):
 
 
 def packages(request):
-    return render(request, 'website/packages.html')
+    # Solo permitir acceso a usuarios autenticados
+    if request.user.is_authenticated:
+        return render(request, 'auth_app/packages.html')
+    else:
+        return render(request, 'website/home.html')
 
 
 # About section views
@@ -85,22 +95,25 @@ def about_team(request):
             'name': 'José Alejandro Jiménez Vásquez',
             'role': 'CEO & Fundador',
             'image': '👨‍💼',
-            'bio': 'Líder visionario con experiencia en publicidad digital y desarrollo de productos tecnológicos.',
-            'linkedin': '#'
+            'bio': 'Producto y growth. Construyendo Plug&Ad para hacer el marketing más simple y medible.',
+            'linkedin': 'https://www.linkedin.com/in/jose-jimenez-vasquez-a388571a2/',
+            'github': 'https://github.com/TheWomanizer'
         },
         {
             'name': 'Miguel José Villegas',
             'role': 'Co-Fundador',
             'image': '👨‍💻',
             'bio': 'Experto en desarrollo y arquitectura de sistemas publicitarios automatizados.',
-            'linkedin': '#'
+            'linkedin': '#',
+            'github': 'https://github.com/ll333ll'
         },
         {
             'name': 'María Fernanda Álvarez',
             'role': 'Head of Operations',
             'image': '👩‍💼',
             'bio': 'Especialista en optimización de procesos y gestión de campañas publicitarias.',
-            'linkedin': '#'
+            'linkedin': '#',
+            'github': 'https://github.com/ll333ll'
         }
     ]
     

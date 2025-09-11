@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'website',
     'ads',
     'users',
+    'auth_app',
 ]
 
 MIDDLEWARE = [
@@ -156,6 +157,11 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 }
+
+# Login/Logout URLs
+LOGIN_URL = '/auth/login/'
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Language
 LANGUAGE_CODE = 'es-es'

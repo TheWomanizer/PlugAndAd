@@ -1,0 +1,168 @@
+{% extends 'base_dashboard.html' %}
+
+{% block title %}Dashboard - Plug&Ad{% endblock %}
+
+{% block dashboard_content %}
+<!-- Welcome Section -->
+<div class="card" style="margin-bottom: 2rem; background: linear-gradient(135deg, var(--primary-color), #4f46e5); color: white;">
+  <div class="card__content">
+    <div style="display: flex; justify-content: between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1 style="color: white; margin-bottom: 0.5rem;">
+          ¡Bienvenido, {{ user.first_name|default:user.username }}! 👋
+        </h1>
+        <p style="color: rgba(255, 255, 255, 0.9); margin: 0;">
+          Accede a tu panel de control de PlugAndAd
+        </p>
+      </div>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="{% url 'pricing' %}" class="btn" style="background-color: white; color: var(--primary-color); font-weight: 600;">
+          Ver Suscripciones
+        </a>
+        <a href="{% url 'packages' %}" class="btn btn--secondary" style="border-color: white; color: white;">
+          Explorar Paquetes
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="grid grid--4" style="margin-bottom: 3rem;">
+  <div class="card">
+    <div class="card__content text-center">
+      <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">📊</span>
+      <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">0</h3>
+      <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">Campañas Activas</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card__content text-center">
+      <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">💰</span>
+      <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">$0</h3>
+      <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">Gasto Este Mes</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card__content text-center">
+      <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">🎯</span>
+      <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">0</h3>
+      <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">Conversiones</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card__content text-center">
+      <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">📈</span>
+      <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">-</h3>
+      <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">ROAS</p>
+    </div>
+  </div>
+</div>
+
+<!-- Getting Started -->
+<div class="grid grid--2" style="margin-bottom: 3rem;">
+  <div class="card">
+    <div class="card__header">
+      <h3 class="card__title">🚀 Comenzar</h3>
+      <p class="card__description">Configura tu primera campaña en minutos</p>
+    </div>
+    <div class="card__content">
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem; background: #f8f9fa; border-radius: var(--radius-sm);">
+          <span style="color: var(--primary-color);">✓</span>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Cuenta creada</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px dashed var(--border-color); border-radius: var(--radius-sm);">
+          <span style="color: var(--text-muted);">○</span>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Conectar cuentas publicitarias</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px dashed var(--border-color); border-radius: var(--radius-sm);">
+          <span style="color: var(--text-muted);">○</span>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Crear primera campaña</span>
+        </div>
+      </div>
+      <div style="margin-top: 1.5rem;">
+        <a href="#" class="btn btn--primary btn--full">
+          Conectar Google Ads →
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card__header">
+      <h3 class="card__title">📚 Recursos</h3>
+      <p class="card__description">Aprende a maximizar tu ROAS</p>
+    </div>
+    <div class="card__content">
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <a href="#" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; color: inherit;">
+          <span style="font-size: 1.5rem;">📹</span>
+          <div>
+            <h4 style="margin: 0 0 0.25rem 0; color: var(--text-dark);">Tutorial de 5 minutos</h4>
+            <p style="margin: 0; color: var(--text-muted); font-size: 0.875rem;">Configura tu primera campaña</p>
+          </div>
+        </a>
+        
+        <a href="#" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; color: inherit;">
+          <span style="font-size: 1.5rem;">📖</span>
+          <div>
+            <h4 style="margin: 0 0 0.25rem 0; color: var(--text-dark);">Guía de optimización</h4>
+            <p style="margin: 0; color: var(--text-muted); font-size: 0.875rem;">Mejores prácticas para IA</p>
+          </div>
+        </a>
+        
+        <a href="#" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; color: inherit;">
+          <span style="font-size: 1.5rem;">💬</span>
+          <div>
+            <h4 style="margin: 0 0 0.25rem 0; color: var(--text-dark);">Soporte en vivo</h4>
+            <p style="margin: 0; color: var(--text-muted); font-size: 0.875rem;">Contacta nuestro equipo</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Account Info -->
+<div class="card">
+  <div class="card__header">
+    <h3 class="card__title">🔧 Tu Cuenta</h3>
+  </div>
+  <div class="card__content">
+    <div class="grid grid--2">
+      <div>
+        <h4 style="color: var(--text-dark); margin-bottom: 1rem;">Información Personal</h4>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; justify-content: between;">
+            <span style="color: var(--text-muted);">Usuario:</span>
+            <span style="color: var(--text-dark); font-weight: 500;">{{ user.username }}</span>
+          </div>
+          <div style="display: flex; justify-content: between;">
+            <span style="color: var(--text-muted);">Email:</span>
+            <span style="color: var(--text-dark); font-weight: 500;">{{ user.email }}</span>
+          </div>
+          <div style="display: flex; justify-content: between;">
+            <span style="color: var(--text-muted);">Miembro desde:</span>
+            <span style="color: var(--text-dark); font-weight: 500;">{{ user.date_joined|date:"d/m/Y" }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h4 style="color: var(--text-dark); margin-bottom: 1rem;">Plan Actual</h4>
+        <div style="padding: 1rem; background: #f8f9fa; border-radius: var(--radius-sm); text-align: center;">
+          <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;">🆓</span>
+          <h4 style="color: var(--primary-color); margin: 0 0 0.5rem 0;">Prueba Gratuita</h4>
+          <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">14 días restantes</p>
+          <div style="margin-top: 1rem;">
+            <a href="{% url 'pricing' %}" class="btn btn--primary btn--small">
+              Ver Suscripciones
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

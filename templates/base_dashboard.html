@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dashboard - Plug&Ad{% endblock %}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Josefin+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Panel de control de PlugAndAd - Gestiona tus campañas publicitarias con IA">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Dashboard Header -->
+    <header class="header" style="border-bottom: 1px solid var(--border-color); background: white;">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <a href="{% url 'dashboard' %}" class="nav__logo">Plug&Ad ({{ user.first_name|default:user.username }})</a>
+            </div>
+            <div class="nav__menu">
+                <a href="{% url 'dashboard' %}" class="nav__link">Dashboard</a>
+                <a href="{% url 'packages' %}" class="nav__link">Paquetes</a>
+                <a href="{% url 'pricing' %}" class="nav__link">Suscripciones</a>
+                <a href="{% url 'cart' %}" class="nav__link">🛒 Carrito</a>
+                <div style="position: relative; display: inline-block;">
+                    <button class="nav__link" style="background: none; border: none; cursor: pointer;" onclick="toggleUserMenu()">
+                        {{ user.username }} ▼
+                    </button>
+                    <div id="userMenu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid var(--border-color); border-radius: var(--radius-sm); min-width: 150px; z-index: 1000;">
+                        <a href="{% url 'profile' %}" style="display: block; padding: 0.75rem 1rem; color: var(--text-dark); text-decoration: none; border-bottom: 1px solid var(--border-color);">Mi Perfil</a>
+                        <a href="#" style="display: block; padding: 0.75rem 1rem; color: var(--text-dark); text-decoration: none; border-bottom: 1px solid var(--border-color);">Configuración</a>
+                        <a href="{% url 'logout' %}" style="display: block; padding: 0.75rem 1rem; color: #dc2626; text-decoration: none;">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" style="background: #f8f9fa; min-height: calc(100vh - 80px);">
+        <div class="container" style="padding-top: 2rem; padding-bottom: 2rem;">
+            <!-- Messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div style="margin-bottom: 2rem; padding: 1rem; background-color: {% if message.tags == 'error' %}#fee2e2; color: #dc2626;{% else %}#dcfce7; color: #16a34a;{% endif %} border-radius: var(--radius-sm);">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
+            {% block dashboard_content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleUserMenu() {
+            const menu = document.getElementById('userMenu');
+            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('userMenu');
+            const button = event.target.closest('button');
+            if (!button || !button.onclick) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

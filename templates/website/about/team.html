@@ -40,9 +40,16 @@ Los expertos que están construyendo el futuro de la publicidad digital
       <h3 class="team-card__name">{{ member.name }}</h3>
       <p class="team-card__role">{{ member.role }}</p>
       <p class="team-card__bio">{{ member.bio }}</p>
-      <a href="{{ member.linkedin }}" class="team-card__linkedin">
-        💼 LinkedIn →
-      </a>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="{{ member.linkedin }}" class="team-card__linkedin">
+          💼 LinkedIn →
+        </a>
+        {% if member.github %}
+        <a href="{{ member.github }}" class="team-card__linkedin">
+          💻 GitHub →
+        </a>
+        {% endif %}
+      </div>
     </div>
     {% endif %} {% endfor %}
   </div>
@@ -60,9 +67,16 @@ Los expertos que están construyendo el futuro de la publicidad digital
       <h3 class="team-card__name">{{ member.name }}</h3>
       <p class="team-card__role">{{ member.role }}</p>
       <p class="team-card__bio">{{ member.bio }}</p>
-      <a href="{{ member.linkedin }}" class="team-card__linkedin">
-        💼 LinkedIn →
-      </a>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="{{ member.linkedin }}" class="team-card__linkedin">
+          💼 LinkedIn →
+        </a>
+        {% if member.github %}
+        <a href="{{ member.github }}" class="team-card__linkedin">
+          💻 GitHub →
+        </a>
+        {% endif %}
+      </div>
     </div>
     {% endif %} {% endfor %}
   </div>
@@ -185,7 +199,7 @@ Los expertos que están construyendo el futuro de la publicidad digital
           >🏢</span
         >
         <h4 style="color: var(--primary-color); margin-bottom: 0.5rem">
-          Madrid, España
+          Medellín, Colombia
         </h4>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0">
           Sede Principal
@@ -197,7 +211,7 @@ Los expertos que están construyendo el futuro de la publicidad digital
             margin: 0.5rem 0 0 0;
           "
         >
-          Serrano 95, 28006
+          El Poblado (Milla de Oro)
         </p>
       </div>
 
@@ -213,10 +227,10 @@ Los expertos que están construyendo el futuro de la publicidad digital
           >🌴</span
         >
         <h4 style="color: var(--primary-color); margin-bottom: 0.5rem">
-          São Paulo, Brasil
+          Barranquilla, Colombia
         </h4>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0">
-          Oficina LATAM
+          Oficina Caribe
         </p>
         <p
           style="
@@ -225,7 +239,7 @@ Los expertos que están construyendo el futuro de la publicidad digital
             margin: 0.5rem 0 0 0;
           "
         >
-          Av. Paulista 1000
+          Alto Prado / Buenavista
         </p>
       </div>
 
@@ -253,7 +267,7 @@ Los expertos que están construyendo el futuro de la publicidad digital
             margin: 0.5rem 0 0 0;
           "
         >
-          15+ países
+          Colombia & LATAM
         </p>
       </div>
     </div>
@@ -317,7 +331,7 @@ Los expertos que están construyendo el futuro de la publicidad digital
       <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin: 0">
         Posiciones abiertas:
         <strong
-          >Senior Full Stack Developer • ML Engineer • Product Designer</strong
+          >Full-Stack Engineer (TypeScript/Python) • ML/Optimization Engineer • Product Designer (Data-viz/UX Ads)</strong
         >
       </p>
     </div>

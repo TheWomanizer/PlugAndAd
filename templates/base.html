@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Plug&amp;Ad - Automatiza tus Ads{% endblock %}</title>
+    <title>{% block title %}Plug&amp;Ad - Tu copiloto de Ads con IA{% endblock %}</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     <!-- Meta tags -->
-    <meta name="description" content="{% block description %}Automatiza y optimiza tus campañas publicitarias con IA. Conecta Google, Meta y TikTok Ads en una sola plataforma.{% endblock %}">
-    <meta property="og:title" content="{% block og_title %}Plug&amp;Ad - Automatiza tus Ads{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Plataforma completa para automatizar y optimizar campañas publicitarias con IA{% endblock %}">
+    <meta name="description" content="{% block description %}Plataforma multicanal para crear, optimizar y auditar campañas en Google, Meta y TikTok con IA y flujos de 1 clic.{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Plug&amp;Ad - Tu copiloto de Ads con IA{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Escalea tus Ads con IA — sin complejidad. Crea, optimiza y audita campañas en Google, Meta y TikTok desde un solo lugar.{% endblock %}">
     <meta property="og:type" content="website">
     
     {% block extra_head %}{% endblock %}
@@ -31,9 +31,8 @@
             </div>
             <div class="nav__menu">
                 <a href="{% url 'home' %}" class="nav__link">Inicio</a>
-                <a href="{% url 'packages' %}" class="nav__link">Paquetes</a>
-                <a href="{% url 'pricing' %}" class="nav__link">Precios</a>
-                <a href="{% url 'signup' %}" class="nav__link nav__link--primary">Comenzar</a>
+                <a href="{% url 'about' %}" class="nav__link">Sobre Nosotros</a>
+                <a href="{% url 'login' %}" class="nav__link nav__link--primary">Comenzar</a>
             </div>
         </nav>
     </header>
@@ -50,7 +49,7 @@
                 <div class="footer__brand">
                     <h3 class="footer__logo">Plug&amp;Ad</h3>
                     <p class="footer__description">
-                        Automatiza tus ads. Aumenta tu ROAS.
+                        Tu copiloto de Ads con IA. Escalea sin fricción.
                     </p>
                 </div>
                 <div class="footer__links">
@@ -62,9 +61,9 @@
                     </div>
                     <div class="footer__group">
                         <h4 class="footer__title">Empresa</h4>
-                        <a href="#" class="footer__link">Sobre nosotros</a>
+                        <a href="{% url 'about' %}" class="footer__link">Sobre nosotros</a>
+                        <a href="{% url 'about_contact' %}" class="footer__link">Contacto</a>
                         <a href="#" class="footer__link">Blog</a>
-                        <a href="#" class="footer__link">Contacto</a>
                     </div>
                     <div class="footer__group">
                         <h4 class="footer__title">Soporte</h4>

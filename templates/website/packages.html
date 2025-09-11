@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="card__footer">
-                    <a href="{% url 'signup' %}" class="btn btn--secondary btn--full">Usar paquete</a>
+                    <button onclick="addToCart('e-commerce-starter', 'E-commerce Starter', 99)" class="btn btn--secondary btn--full">Agregar al Carrito - $99</button>
                 </div>
             </div>
             
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="card__footer">
-                    <a href="{% url 'signup' %}" class="btn btn--secondary btn--full">Usar paquete</a>
+                    <button onclick="addToCart('local-business-pro', 'Local Business Pro', 129)" class="btn btn--secondary btn--full">Agregar al Carrito - $129</button>
                 </div>
             </div>
             
@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="card__footer">
-                    <a href="{% url 'signup' %}" class="btn btn--secondary btn--full">Usar paquete</a>
+                    <button onclick="addToCart('social-commerce', 'Social Commerce', 149)" class="btn btn--secondary btn--full">Agregar al Carrito - $149</button>
                 </div>
             </div>
             
@@ -155,7 +155,7 @@
                     </div>
                 </div>
                 <div class="card__footer">
-                    <a href="{% url 'signup' %}" class="btn btn--secondary btn--full">Usar paquete</a>
+                    <button onclick="addToCart('brand-awareness-plus', 'Brand Awareness+', 179)" class="btn btn--secondary btn--full">Agregar al Carrito - $179</button>
                 </div>
             </div>
             
@@ -186,7 +186,7 @@
                     </div>
                 </div>
                 <div class="card__footer">
-                    <a href="{% url 'signup' %}" class="btn btn--secondary btn--full">Usar paquete</a>
+                    <button onclick="addToCart('gen-z-viral', 'Gen Z Viral', 139)" class="btn btn--secondary btn--full">Agregar al Carrito - $139</button>
                 </div>
             </div>
             
@@ -216,7 +216,7 @@
                     </div>
                 </div>
                 <div class="card__footer">
-                    <a href="{% url 'signup' %}" class="btn btn--secondary btn--full">Usar paquete</a>
+                    <button onclick="addToCart('creator-partnership', 'Creator Partnership', 199)" class="btn btn--secondary btn--full">Agregar al Carrito - $199</button>
                 </div>
             </div>
             
@@ -254,7 +254,7 @@
                     </div>
                 </div>
                 <div class="card__footer">
-                    <a href="{% url 'signup' %}" class="btn btn--primary btn--full">Usar paquete</a>
+                    <button onclick="addToCart('omnichannel-master', 'Omnichannel Master', 299)" class="btn btn--primary btn--full">Agregar al Carrito - $299</button>
                 </div>
             </div>
         </div>
@@ -272,20 +272,62 @@
                 </p>
             </div>
             <div class="card__footer">
-                <a href="{% url 'signup' %}" class="btn btn--primary btn--large" style="margin-right: 1rem;">
+                <a href="{% url 'about_contact' %}" class="btn btn--primary btn--large" style="margin-right: 1rem;">
                     Solicitar paquete custom
                 </a>
                 <a href="{% url 'pricing' %}" class="btn btn--secondary btn--large">
-                    Ver planes
+                    Ver suscripciones
                 </a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Filter Script -->
+<!-- Filter and Cart Script -->
 <script>
+let cart = JSON.parse(localStorage.getItem('plugandad_cart')) || [];
+
+function addToCart(id, name, price) {
+    const existingItem = cart.find(item => item.id === id);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+    
+    localStorage.setItem('plugandad_cart', JSON.stringify(cart));
+    
+    // Show success message
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = '✓ Agregado al Carrito';
+    button.style.backgroundColor = '#16a34a';
+    
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.backgroundColor = '';
+    }, 2000);
+    
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartLink = document.querySelector('a[href="/auth/cart/"]');
+    if (cartLink && cartCount > 0) {
+        cartLink.innerHTML = `🛒 Carrito (${cartCount})`;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    
     const filterButtons = document.querySelectorAll('.filter-btn');
     const packageCards = document.querySelectorAll('.package-card');
     
